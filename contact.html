@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - EmailSortPro</title>
+    <meta name="description" content="Contactez EmailSortPro pour vos demandes de devis, questions techniques, démonstrations ou suggestions.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-envelope-open-text"></i>
+                EmailSortPro
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Accueil
+                </a></li>
+                <li><a href="fonctionnalites.html" class="nav-link">
+                    <i class="fas fa-cogs"></i> Fonctionnalités
+                </a></li>
+                <li><a href="tarifs.html" class="nav-link">
+                    <i class="fas fa-euro-sign"></i> Tarifs
+                </a></li>
+                <li><a href="contact.html" class="nav-link active">
+                    <i class="fas fa-envelope"></i> Contact
+                </a></li>
+            </ul>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Page Contact -->
+    <section class="section page-content">
+        <div class="container">
+            <h1 class="section-title">Contactez-nous</h1>
+            <p class="section-subtitle">
+                Choisissez le type de demande qui correspond à vos besoins
+            </p>
+            
+            <div class="contact-options">
+                <div class="contact-option">
+                    <div class="contact-option-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Demande de devis</h3>
+                    <p>Obtenez un devis personnalisé pour votre entreprise avec tarification dégressive selon le nombre d'utilisateurs.</p>
+                    <button class="contact-btn" onclick="showContactModal('devis')">Demander un devis</button>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-option-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Questions techniques</h3>
+                    <p>Besoin d'informations sur l'intégration, la sécurité, ou les fonctionnalités techniques d'EmailSortPro.</p>
+                    <button class="contact-btn" onclick="showContactModal('technique')">Poser une question</button>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-option-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <h3>Demande de présentation</h3>
+                    <p>Organisez une démonstration personnalisée pour votre équipe et découvrez EmailSortPro en action.</p>
+                    <button class="contact-btn" onclick="showContactModal('presentation')">Planifier une démo</button>
+                </div>
+                
+                <div class="contact-option">
+                    <div class="contact-option-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Suggestions</h3>
+                    <p>Partagez vos idées d'amélioration, retours d'expérience ou suggestions pour EmailSortPro.</p>
+                    <button class="contact-btn" onclick="showContactModal('suggestions')">Faire une suggestion</button>
+                </div>
+            </div>
+
+            <div class="direct-contact">
+                <h4>
+                    <i class="fas fa-envelope"></i> Contact direct
+                </h4>
+                <p>
+                    Vous pouvez également nous contacter directement à : 
+                    <a href="mailto:vianneyhastings@emailsortpro.fr">vianneyhastings@emailsortpro.fr</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Contact -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="closeContactModal()">&times;</span>
+                <h2 id="modalTitle">Contactez-nous</h2>
+                <p id="modalSubtitle">Nous vous répondrons dans les plus brefs délais</p>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm">
+                    <input type="hidden" id="requestType" name="requestType">
+                    
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email professionnel *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Entreprise</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group" id="usersGroup">
+                        <label for="users">Nombre d'utilisateurs</label>
+                        <select id="users" name="users">
+                            <option value="">Sélectionnez</option>
+                            <option value="1-10">1-10 utilisateurs</option>
+                            <option value="11-50">11-50 utilisateurs</option>
+                            <option value="51-100">51-100 utilisateurs</option>
+                            <option value="100-500">100-500 utilisateurs</option>
+                            <option value="500+">500+ utilisateurs</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Décrivez vos besoins..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="plan-button primary submit-btn">
+                        <i class="fas fa-paper-plane"></i> <span id="submitText">Envoyer ma demande</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-envelope-open-text"></i>
+                        EmailSortPro
+                    </div>
+                    <p>Scanner d'emails intelligent avec IA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+                        <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>
+                        Email : <a href="mailto:vianneyhastings@emailsortpro.fr" style="color: #667eea;">vianneyhastings@emailsortpro.fr</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EmailSortPro. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
