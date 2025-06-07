@@ -42,97 +42,77 @@
         <div class="container">
             <h1 class="section-title">Contactez-nous</h1>
             <p class="section-subtitle">
-                Choisissez le type de demande qui correspond à vos besoins
+                Remplissez le formulaire ci-dessous pour nous envoyer votre message
             </p>
             
-            <div class="contact-options">
-                <div class="contact-option">
-                    <div class="contact-option-icon">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <h3>Demande de devis</h3>
-                    <p>Obtenez un devis personnalisé pour votre entreprise avec tarification dégressive selon le nombre d'utilisateurs.</p>
-                    <button class="contact-btn" onclick="openEmailForm('devis')">Demander un devis</button>
-                </div>
-                
-                <div class="contact-option">
-                    <div class="contact-option-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3>Questions techniques</h3>
-                    <p>Besoin d'informations sur l'intégration, la sécurité, ou les fonctionnalités techniques d'EmailSortPro.</p>
-                    <button class="contact-btn" onclick="openEmailForm('technique')">Poser une question</button>
-                </div>
-                
-                <div class="contact-option">
-                    <div class="contact-option-icon">
-                        <i class="fas fa-presentation"></i>
-                    </div>
-                    <h3>Demande de présentation</h3>
-                    <p>Organisez une démonstration personnalisée pour votre équipe et découvrez EmailSortPro en action.</p>
-                    <button class="contact-btn" onclick="openEmailForm('presentation')">Planifier une démo</button>
-                </div>
-                
-                <div class="contact-option">
-                    <div class="contact-option-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
-                    <h3>Suggestions</h3>
-                    <p>Partagez vos idées d'amélioration, retours d'expérience ou suggestions pour EmailSortPro.</p>
-                    <button class="contact-btn" onclick="openEmailForm('suggestions')">Faire une suggestion</button>
-                </div>
-            </div>
-
-            <!-- Formulaire Email -->
-            <div id="emailForm" class="email-form-container" style="display: none;">
-                <div class="email-form">
-                    <div class="email-form-header">
-                        <h3 id="formTitle">Composer votre message</h3>
-                        <button class="close-form" onclick="closeEmailForm()">
-                            <i class="fas fa-times"></i>
-                        </button>
+            <!-- Formulaire de Contact Direct -->
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nom complet *</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
                     
-                    <form id="contactEmailForm">
-                        <div class="email-field">
-                            <label>De :</label>
-                            <input type="email" id="fromEmail" placeholder="votre.email@entreprise.com" required>
-                        </div>
-                        
-                        <div class="email-field">
-                            <label>À :</label>
-                            <input type="email" id="toEmail" value="vianneyhastings@emailsortpro.fr" readonly>
-                        </div>
-                        
-                        <div class="email-field">
-                            <label>Objet :</label>
-                            <input type="text" id="emailSubject" readonly>
-                        </div>
-                        
-                        <div class="email-field">
-                            <label>Message :</label>
-                            <textarea id="emailMessage" rows="10" required></textarea>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" onclick="closeEmailForm()" class="btn-cancel">
-                                <i class="fas fa-times"></i> Annuler
-                            </button>
-                            <button type="submit" class="btn-send">
-                                <i class="fas fa-paper-plane"></i> Envoyer
-                            </button>
-                        </div>
-                    </form>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Email professionnel *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Entreprise</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Type de demande *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Sélectionnez le type de demande</option>
+                            <option value="Demande de devis EmailSortPro">Demande de devis</option>
+                            <option value="Question technique EmailSortPro">Question technique</option>
+                            <option value="Demande de démonstration EmailSortPro">Demande de présentation</option>
+                            <option value="Test gratuit EmailSortPro">Test gratuit / Démonstration</option>
+                            <option value="Suggestions EmailSortPro">Suggestions et retours</option>
+                            <option value="Information générale EmailSortPro">Information générale</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="users">Nombre d'utilisateurs (optionnel)</label>
+                        <select id="users" name="users">
+                            <option value="">Sélectionnez</option>
+                            <option value="1-10">1-10 utilisateurs</option>
+                            <option value="11-50">11-50 utilisateurs</option>
+                            <option value="51-100">51-100 utilisateurs</option>
+                            <option value="100-500">100-500 utilisateurs</option>
+                            <option value="500+">500+ utilisateurs</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Téléphone (optionnel)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="8" placeholder="Décrivez vos besoins, questions ou suggestions..." required></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn-send">
+                            <i class="fas fa-paper-plane"></i> Envoyer le message
+                        </button>
+                    </div>
+                </form>
             </div>
 
-            <div class="direct-contact">
+            <div class="contact-info">
                 <h4>
                     <i class="fas fa-info-circle"></i> Information
                 </h4>
                 <p>
-                    Sélectionnez le type de demande ci-dessus pour composer votre message. 
-                    Votre client email s'ouvrira automatiquement avec le message pré-rempli.
+                    Votre message sera traité rapidement. 
+                    Nous vous répondrons dans les plus brefs délais selon le type de demande sélectionné.
                 </p>
             </div>
         </div>
@@ -176,177 +156,96 @@
             navLinks.classList.toggle('active');
         }
 
-        // Templates d'emails pré-configurés
-        const emailTemplates = {
-            devis: {
-                title: "Demande de devis - EmailSortPro",
-                subject: "Demande de devis EmailSortPro",
-                message: `Bonjour,
-
-Je souhaite obtenir un devis pour EmailSortPro pour mon entreprise.
-
-Informations sur mon entreprise :
-- Nom de l'entreprise : 
-- Nombre d'utilisateurs prévu : 
-- Secteur d'activité : 
-- Besoins spécifiques : 
-
-Questions particulières :
-
-
-Merci de me faire parvenir un devis personnalisé.
-
-Cordialement,`
-            },
-            technique: {
-                title: "Question technique - EmailSortPro",
-                subject: "Question technique EmailSortPro",
-                message: `Bonjour,
-
-J'aimerais obtenir des informations techniques concernant EmailSortPro.
-
-Ma question concerne :
-□ Intégration avec Outlook
-□ Sécurité et conformité RGPD
-□ Configuration réseau
-□ Fonctionnalités avancées
-□ Autre : 
-
-Description détaillée de ma question :
-
-
-Contexte technique de mon environnement :
-
-
-Merci pour votre aide.
-
-Cordialement,`
-            },
-            presentation: {
-                title: "Demande de présentation - EmailSortPro",
-                subject: "Demande de démonstration EmailSortPro",
-                message: `Bonjour,
-
-Je souhaite organiser une démonstration d'EmailSortPro pour mon équipe.
-
-Informations sur la démonstration souhaitée :
-- Nombre de participants : 
-- Disponibilités préférées : 
-- Durée souhaitée : 
-- Points spécifiques à voir : 
-
-Informations sur mon entreprise :
-- Nom de l'entreprise : 
-- Mon rôle : 
-- Nombre d'utilisateurs potentiels : 
-
-Objectifs de la démonstration :
-
-
-Merci de me proposer des créneaux.
-
-Cordialement,`
-            },
-            suggestions: {
-                title: "Suggestions - EmailSortPro",
-                subject: "Suggestions et retours EmailSortPro",
-                message: `Bonjour,
-
-J'aimerais partager avec vous mes suggestions concernant EmailSortPro.
-
-Type de retour :
-□ Suggestion d'amélioration
-□ Retour d'expérience
-□ Nouvelle fonctionnalité
-□ Problème rencontré
-□ Autre : 
-
-Description détaillée :
-
-
-Impact sur mon utilisation :
-
-
-Suggestions d'amélioration :
-
-
-Merci pour votre attention.
-
-Cordialement,`
-            }
-        };
-
-        // Ouvrir le formulaire email avec template pré-configuré
-        function openEmailForm(type) {
-            const template = emailTemplates[type];
-            if (!template) return;
-
-            // Remplir le formulaire avec le template
-            document.getElementById('formTitle').textContent = template.title;
-            document.getElementById('emailSubject').value = template.subject;
-            document.getElementById('emailMessage').value = template.message;
-            
-            // Afficher le formulaire
-            document.getElementById('emailForm').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            
-            // Focus sur le champ email
-            document.getElementById('fromEmail').focus();
-        }
-
-        // Fermer le formulaire
-        function closeEmailForm() {
-            document.getElementById('emailForm').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            
-            // Reset du formulaire
-            document.getElementById('contactEmailForm').reset();
-        }
-
-        // Gestion de l'envoi du formulaire
+        // Gestion du formulaire de contact
         document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contactEmailForm');
+            const form = document.getElementById('contactForm');
             
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                const fromEmail = document.getElementById('fromEmail').value;
-                const toEmail = document.getElementById('toEmail').value;
-                const subject = document.getElementById('emailSubject').value;
-                const message = document.getElementById('emailMessage').value;
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const company = document.getElementById('company').value;
+                const subject = document.getElementById('subject').value;
+                const users = document.getElementById('users').value;
+                const phone = document.getElementById('phone').value;
+                const message = document.getElementById('message').value;
                 
                 // Validation
-                if (!fromEmail || !message) {
-                    alert('Veuillez remplir tous les champs requis.');
+                if (!name || !email || !subject || !message) {
+                    alert('Veuillez remplir tous les champs requis (*).');
                     return;
                 }
                 
-                // Construire le lien mailto
-                const emailBody = encodeURIComponent(message + '\n\n---\nEnvoyé depuis le site EmailSortPro\nDe: ' + fromEmail);
-                const mailtoLink = `mailto:${toEmail}?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
+                // Construction du message email
+                let emailBody = `Bonjour,
+
+Nouvelle demande depuis le site EmailSortPro :
+
+INFORMATIONS CONTACT :
+- Nom : ${name}
+- Email : ${email}`;
+
+                if (company) emailBody += `\n- Entreprise : ${company}`;
+                if (users) emailBody += `\n- Nombre d'utilisateurs : ${users}`;
+                if (phone) emailBody += `\n- Téléphone : ${phone}`;
+
+                emailBody += `
+
+TYPE DE DEMANDE : ${subject}
+
+MESSAGE :
+${message}
+
+---
+Envoyé depuis le formulaire de contact EmailSortPro`;
+                
+                // Créer le lien mailto
+                const mailtoLink = `mailto:vianneyhastings@emailsortpro.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
                 
                 // Ouvrir le client email
                 window.location.href = mailtoLink;
                 
-                // Confirmation et fermeture
+                // Confirmation
                 setTimeout(() => {
-                    alert('Votre client email va s\'ouvrir avec le message pré-rempli. Vous pouvez maintenant l\'envoyer !');
-                    closeEmailForm();
+                    alert('Votre client email va s\'ouvrir avec le message pré-rempli. Cliquez sur "Envoyer" dans votre client email pour nous transmettre votre demande !');
+                    
+                    // Reset du formulaire
+                    form.reset();
                 }, 500);
             });
 
-            // Fermer avec Escape
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closeEmailForm();
-                }
+            // Fermer le menu mobile en cliquant sur un lien
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const mobileNavLinks = document.querySelector('.nav-links');
+                    mobileNavLinks.classList.remove('active');
+                });
             });
 
-            // Fermer en cliquant à l'extérieur
-            document.getElementById('emailForm').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeEmailForm();
-                }
+            // Animation au scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observer les éléments animables
+            const animatedElements = document.querySelectorAll('.contact-form, .contact-info');
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
             });
         });
 
@@ -354,164 +253,108 @@ Cordialement,`
     </script>
 
     <style>
-        /* Styles spécifiques pour le formulaire email */
-        .email-form-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-        }
-
-        .email-form {
-            background: white;
-            border-radius: 15px;
-            width: 100%;
+        /* Styles pour le formulaire de contact direct */
+        .contact-form {
             max-width: 600px;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f1f5f9;
         }
 
-        .email-form-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem 2rem;
-            border-radius: 15px 15px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .form-group {
+            margin-bottom: 2rem;
         }
 
-        .email-form-header h3 {
-            margin: 0;
-            font-size: 1.3rem;
-        }
-
-        .close-form {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 5px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        .close-form:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .email-field {
-            padding: 1rem 2rem;
-            border-bottom: 1px solid #f1f5f9;
-        }
-
-        .email-field:last-of-type {
-            border-bottom: none;
-        }
-
-        .email-field label {
+        .form-group label {
             display: block;
+            margin-bottom: 0.5rem;
             font-weight: 600;
             color: #374151;
-            margin-bottom: 0.5rem;
         }
 
-        .email-field input,
-        .email-field textarea {
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 12px;
+            padding: 12px 16px;
             border: 2px solid #e5e7eb;
-            border-radius: 8px;
+            border-radius: 10px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: border-color 0.3s ease;
+            background: white;
             font-family: inherit;
         }
 
-        .email-field input:focus,
-        .email-field textarea:focus {
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: #667eea;
         }
 
-        .email-field input[readonly] {
-            background: #f8fafc;
-            color: #6b7280;
-        }
-
-        .email-field textarea {
+        .form-group textarea {
             resize: vertical;
-            min-height: 200px;
             line-height: 1.5;
         }
 
         .form-actions {
-            padding: 1.5rem 2rem;
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-            background: #f8fafc;
-            border-radius: 0 0 15px 15px;
-        }
-
-        .btn-cancel {
-            padding: 12px 24px;
-            border: 2px solid #e5e7eb;
-            background: white;
-            color: #6b7280;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-cancel:hover {
-            border-color: #d1d5db;
-            background: #f9fafb;
+            text-align: center;
+            margin-top: 2rem;
         }
 
         .btn-send {
-            padding: 12px 24px;
-            border: none;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            border-radius: 8px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
             font-weight: 600;
+            font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .btn-send:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-info h4 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: #6b7280;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .email-form-container {
-                padding: 1rem;
+            .contact-form {
+                padding: 2rem 1rem;
+                margin: 0 1rem;
             }
             
-            .email-field {
-                padding: 1rem;
-            }
-            
-            .form-actions {
-                padding: 1rem;
-                flex-direction: column;
-            }
-            
-            .btn-cancel,
-            .btn-send {
-                width: 100%;
+            .contact-info {
+                margin: 2rem 1rem 0;
+                padding: 1.5rem;
             }
         }
     </style>
