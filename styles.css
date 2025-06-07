@@ -724,8 +724,13 @@ body {
         display: flex;
     }
 
-    .cta-button {
-        display: none;
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .nav-links {
+        flex-grow: 1;
+        justify-content: center;
     }
 
     .hero h1 {
