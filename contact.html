@@ -65,7 +65,7 @@
                     
                     <div class="form-group">
                         <label for="subject">Type de demande *</label>
-                        <select id="subject" name="subject" required>
+                        <select id="subject" name="subject" required onchange="updateMessageTemplate()">
                             <option value="">Sélectionnez le type de demande</option>
                             <option value="Demande de devis EmailSortPro">Demande de devis</option>
                             <option value="Question technique EmailSortPro">Question technique</option>
@@ -95,7 +95,7 @@
                     
                     <div class="form-group">
                         <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="8" placeholder="Décrivez vos besoins, questions ou suggestions..." required></textarea>
+                        <textarea id="message" name="message" rows="12" placeholder="Votre message apparaîtra ici selon le type de demande sélectionné..." required></textarea>
                     </div>
                     
                     <div class="form-actions">
@@ -156,7 +156,144 @@
             navLinks.classList.toggle('active');
         }
 
-        // Gestion du formulaire de contact
+        // Templates de messages pré-configurés
+        const messageTemplates = {
+            "Demande de devis EmailSortPro": `Bonjour,
+
+Je souhaite obtenir un devis personnalisé pour EmailSortPro.
+
+Informations sur mon entreprise :
+- Nombre d'utilisateurs prévu : 
+- Secteur d'activité : 
+- Besoins spécifiques : 
+
+Questions particulières :
+
+
+Merci de me faire parvenir un devis adapté à mes besoins.
+
+Cordialement,`,
+
+            "Question technique EmailSortPro": `Bonjour,
+
+J'aimerais obtenir des informations techniques concernant EmailSortPro.
+
+Ma question concerne :
+□ Intégration avec Outlook
+□ Sécurité et conformité RGPD  
+□ Configuration réseau
+□ Fonctionnalités IA
+□ Performance et limites
+□ Autre : 
+
+Description détaillée :
+
+
+Contexte de mon environnement :
+
+
+Merci pour votre aide technique.
+
+Cordialement,`,
+
+            "Demande de démonstration EmailSortPro": `Bonjour,
+
+Je souhaite organiser une démonstration d'EmailSortPro pour découvrir la solution.
+
+Informations sur la démonstration :
+- Nombre de participants : 
+- Disponibilités préférées : 
+- Durée souhaitée : 
+- Points spécifiques à voir : 
+
+Contexte :
+- Nombre d'utilisateurs potentiels : 
+- Problématiques actuelles avec les emails : 
+
+Objectifs de la démonstration :
+
+
+Merci de me proposer des créneaux.
+
+Cordialement,`,
+
+            "Test gratuit EmailSortPro": `Bonjour,
+
+Je souhaite tester gratuitement EmailSortPro pour évaluer la solution.
+
+Informations pour le test :
+- Durée de test souhaitée : 
+- Nombre d'utilisateurs pour le test : 
+- Type d'emails à analyser : 
+- Objectifs du test : 
+
+Mon environnement :
+- Client email utilisé : Outlook / Gmail / Autre
+- Volume d'emails quotidien : 
+- Principaux défis actuels : 
+
+Questions sur le test :
+
+
+Merci de me contacter pour organiser ce test.
+
+Cordialement,`,
+
+            "Suggestions EmailSortPro": `Bonjour,
+
+J'aimerais partager mes suggestions concernant EmailSortPro.
+
+Type de retour :
+□ Suggestion d'amélioration
+□ Nouvelle fonctionnalité
+□ Retour d'expérience  
+□ Problème rencontré
+□ Autre : 
+
+Description détaillée :
+
+
+Impact sur l'utilisation :
+
+
+Suggestions d'amélioration :
+
+
+Merci pour votre attention à ces retours.
+
+Cordialement,`,
+
+            "Information générale EmailSortPro": `Bonjour,
+
+Je souhaite obtenir des informations générales sur EmailSortPro.
+
+Mes questions :
+
+
+Contexte de ma demande :
+
+
+Informations complémentaires souhaitées :
+
+
+Merci de me fournir ces éléments.
+
+Cordialement,`
+        };
+
+        // Fonction pour mettre à jour le template de message
+        function updateMessageTemplate() {
+            const subjectSelect = document.getElementById('subject');
+            const messageTextarea = document.getElementById('message');
+            const selectedValue = subjectSelect.value;
+            
+            if (selectedValue && messageTemplates[selectedValue]) {
+                messageTextarea.value = messageTemplates[selectedValue];
+            } else {
+                messageTextarea.value = '';
+                messageTextarea.placeholder = 'Décrivez vos besoins, questions ou suggestions...';
+            }
+        }
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('contactForm');
             
@@ -255,17 +392,17 @@ Envoyé depuis le formulaire de contact EmailSortPro`;
     <style>
         /* Styles pour le formulaire de contact direct */
         .contact-form {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             background: white;
-            padding: 3rem;
+            padding: 2.5rem;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid #f1f5f9;
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
