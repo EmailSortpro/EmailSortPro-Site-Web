@@ -4,6 +4,83 @@ function toggleMobileMenu() {
     navLinks.classList.toggle('active');
 }
 
+// Modal Contact Functions
+function showContactModal(type) {
+    const modal = document.getElementById('contactModal');
+    if (!modal) return; // Si pas de modal sur cette page, ne rien faire
+    
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const requestType = document.getElementById('requestType');
+    const usersGroup = document.getElementById('usersGroup');
+    const submitText = document.getElementById('submitText');
+    const messageField = document.getElementById('message');
+
+    // Configuration selon le type
+    const configs = {
+        devis: {
+            title: 'Demande de devis',
+            subtitle: 'Obtenez votre devis personnalisé',
+            submitText: 'Demander un devis',
+            placeholder: 'Décrivez vos besoins, le nombre d\'utilisateurs prévu, et toute information utile pour établir votre devis...',
+            showUsers: true
+        },
+        technique: {
+            title: 'Question technique',
+            subtitle: 'Posez votre question technique',
+            submitText: 'Envoyer ma question',
+            placeholder: 'Décrivez votre question technique concernant l\'intégration, la sécurité, les fonctionnalités...',
+            showUsers: false
+        },
+        presentation: {
+            title: 'Demande de présentation',
+            subtitle: 'Planifiez votre démonstration',
+            submitText: 'Demander une démo',
+            placeholder: 'Indiquez vos disponibilités et les aspects que vous souhaitez voir lors de la démonstration...',
+            showUsers: true
+        },
+        demo: {
+            title: 'Service de démonstration',
+            subtitle: 'Testez EmailSortPro gratuitement',
+            submitText: 'Demander un test',
+            placeholder: 'Décrivez votre environnement de travail et vos besoins pour personnaliser votre démonstration...',
+            showUsers: true
+        },
+        suggestions: {
+            title: 'Suggestions et retours',
+            subtitle: 'Partagez vos idées avec nous',
+            submitText: 'Envoyer ma suggestion',
+            placeholder: 'Partagez vos suggestions d\'amélioration, retours d\'expérience ou idées...',
+            showUsers: false
+        }
+    };
+
+    const config = configs[type];
+    if (!config) return;
+
+    modalTitle.textContent = config.title;
+    modalSubtitle.textContent = config.subtitle;
+    requestType.value = type;
+    submitText.textContent = config.submitText;
+    messageField.placeholder = config.placeholder;
+    usersGroup.style.display = config.showUsers ? 'block' : 'none';
+
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeContactModal() {
+    const modal = document.getElementById('contactModal');
+    if (!modal) return;
+    
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+    
+    // Reset form
+    const form = document.getElementById('contactForm');
+    if (form) form.reset();
+}
+
 // Fermer le menu mobile en cliquant sur un lien
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
@@ -15,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Gestion du formulaire de contact
+    // Gestion du formulaire de contact (si présent)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -27,12 +104,41 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
             submitButton.disabled = true;
             
+            // Collecter les données
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
             // Simulation d'envoi
             setTimeout(() => {
-                alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
-                this.reset();
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
+                // Afficher le message de succès
+                const modalBody = document.querySelector('.modal-body');
+                if (modalBody) {
+                    modalBody.innerHTML = `
+                        <div class="success-message">
+                            <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <h3>Message envoyé avec succès !</h3>
+                            <p>Nous vous répondrons dans les plus brefs délais à l'adresse <strong>${data.email}</strong></p>
+                            <p style="margin-top: 1rem; font-size: 0.9rem;">Votre demande sera traitée par notre équipe et redirigée vers <strong>vianneyhastings@emailsortpro.fr</strong></p>
+                            <button class="plan-button primary" onclick="closeContactModal()" style="margin-top: 1rem;">
+                                Fermer
+                            </button>
+                        </div>
+                    `;
+                } else {
+                    // Si pas de modal, juste une alerte simple
+                    alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
+                    this.reset();
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                }
+                
+                // Reset automatique si modal
+                if (modalBody) {
+                    setTimeout(() => {
+                        closeContactModal();
+                        location.reload();
+                    }, 4000);
+                }
             }, 2000);
         });
     }
@@ -53,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }, observerOptions);
 
     // Observer les éléments animables
-    const animatedElements = document.querySelectorAll('.step, .feature-card, .pricing-card, .advantage-item');
+    const animatedElements = document.querySelectorAll('.step, .feature-card, .pricing-card, .advantage-item, .contact-option');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
@@ -83,13 +189,40 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(e) {
         const navbar = document.querySelector('.navbar');
         const mobileMenu = document.querySelector('.nav-links');
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         
         if (!navbar.contains(e.target) && mobileMenu.classList.contains('active')) {
             mobileMenu.classList.remove('active');
         }
     });
+
+    // Performance: Lazy loading des images (si utilisées)
+    setupLazyLoading();
+    
+    // Amélioration de l'accessibilité
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            // Fermer le menu mobile avec Escape
+            const mobileMenu = document.querySelector('.nav-links');
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+            }
+            
+            // Fermer le modal avec Escape
+            const modal = document.getElementById('contactModal');
+            if (modal && modal.style.display === 'block') {
+                closeContactModal();
+            }
+        }
+    });
 });
+
+// Fermer modal en cliquant à l'extérieur
+window.onclick = function(event) {
+    const modal = document.getElementById('contactModal');
+    if (modal && event.target === modal) {
+        closeContactModal();
+    }
+}
 
 // Fonction utilitaire pour gérer les états de chargement
 function setLoadingState(button, isLoading, loadingText = 'Chargement...') {
@@ -142,7 +275,7 @@ function validateForm(form) {
     return isValid;
 }
 
-// Fonction de notification toast (si besoin)
+// Fonction de notification toast
 function showToast(message, type = 'info') {
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
@@ -176,14 +309,18 @@ function showToast(message, type = 'info') {
     setTimeout(() => {
         toast.style.transform = 'translateX(100%)';
         setTimeout(() => {
-            document.body.removeChild(toast);
+            if (document.body.contains(toast)) {
+                document.body.removeChild(toast);
+            }
         }, 300);
     }, 3000);
 }
 
-// Performance: Lazy loading des images (si utilisées)
+// Performance: Lazy loading des images
 function setupLazyLoading() {
     const images = document.querySelectorAll('img[data-src]');
+    
+    if (images.length === 0) return;
     
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
@@ -198,24 +335,5 @@ function setupLazyLoading() {
     
     images.forEach(img => imageObserver.observe(img));
 }
-
-// Initialisation au chargement de la page
-document.addEventListener('DOMContentLoaded', function() {
-    setupLazyLoading();
-    
-    // Amélioration de l'accessibilité
-    const focusableElements = document.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-    
-    // Gestion du focus au clavier
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            // Fermer le menu mobile avec Escape
-            const mobileMenu = document.querySelector('.nav-links');
-            if (mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-            }
-        }
-    });
-});
 
 console.log('🚀 EmailSortPro - Site web chargé avec succès!');
