@@ -174,11 +174,19 @@ body {
 
 .hero-subtitle {
     font-size: 1.4rem;
-    margin-bottom: 3rem;
-    opacity: 0.9;
-    max-width: 600px;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.4;
+}
+
+.hero-features {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+    font-weight: 500;
 }
 
 .hero-buttons {
@@ -286,71 +294,72 @@ body {
 /* Fonctionnalités */
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
 }
 
 .feature-card {
     background: white;
-    border-radius: 15px;
-    padding: 2.5rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
     transition: all 0.3s ease;
     border: 1px solid #f1f5f9;
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 12px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: white;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
 }
 
 .feature-card h3 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     color: #1f2937;
 }
 
 .feature-card p {
     color: #6b7280;
-    line-height: 1.6;
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
 
 /* Section IA */
 .ai-technology-section {
     text-align: center;
-    margin-top: 4rem;
-    padding: 3rem;
+    margin-top: 3rem;
+    padding: 2.5rem;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 20px;
+    border-radius: 15px;
     color: white;
 }
 
 .ai-technology-section h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
     color: white;
 }
 
 .ai-features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .ai-feature {
@@ -358,47 +367,48 @@ body {
 }
 
 .ai-feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
 }
 
 .ai-feature-title {
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
 }
 
 .ai-feature-desc {
     opacity: 0.9;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .ai-description {
     opacity: 0.9;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 /* Compatibilité */
 .compatibility-section {
     text-align: center;
-    margin-top: 4rem;
-    padding: 3rem;
+    margin-top: 3rem;
+    padding: 2.5rem;
     background: #f8fafc;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .compatibility-section h3 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
     color: #1f2937;
 }
 
 .compatibility-grid {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 2.5rem;
     flex-wrap: wrap;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .compatibility-item {
@@ -406,8 +416,8 @@ body {
 }
 
 .compatibility-item i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .compatibility-item i.fa-microsoft {
@@ -420,22 +430,24 @@ body {
 
 .compatibility-name {
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
 }
 
 .compatibility-status.available {
     color: #16a34a;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .compatibility-status.coming {
     color: #f59e0b;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
 .enterprise-note {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     color: #6b7280;
+    font-size: 0.95rem;
 }
 
 /* Tarifs */
@@ -762,6 +774,21 @@ body {
 
     .features-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .ai-technology-section {
+        padding: 2rem;
+        margin-top: 2rem;
+    }
+
+    .compatibility-section {
+        padding: 2rem;
+        margin-top: 2rem;
     }
 
     .advantages-grid {
