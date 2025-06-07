@@ -476,7 +476,74 @@ INFORMATIONS CONTACT :
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
-        /* Responsive */
+        /* Notification de succès */
+        .success-notification {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .success-notification.show {
+            opacity: 1;
+        }
+
+        .success-content {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .success-notification.show .success-content {
+            transform: translateY(0);
+        }
+
+        .success-content i {
+            font-size: 4rem;
+            color: #16a34a;
+            margin-bottom: 1rem;
+        }
+
+        .success-content h3 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .success-content p {
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        /* Animation du bouton d'envoi */
+        .btn-send:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .btn-send .fa-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
         @media (max-width: 768px) {
             .form-row {
                 flex-direction: column;
