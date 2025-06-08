@@ -14,31 +14,40 @@
         <div class="nav-container">
             <div class="logo">
                 <i class="fas fa-envelope-open-text"></i>
-                EmailSortPro
+                <span>EmailSortPro</span>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">
-                    <i class="fas fa-home"></i> Accueil
-                </a></li>
-                <li><a href="fonctionnalites.html" class="nav-link">
-                    <i class="fas fa-cogs"></i> Fonctionnalités
-                </a></li>
-                <li><a href="tarifs.html" class="nav-link">
-                    <i class="fas fa-euro-sign"></i> Tarifs
-                </a></li>
-                <li><a href="contact.html" class="nav-link active">
-                    <i class="fas fa-envelope"></i> Contact
-                </a></li>
-            </ul>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> 
+                        <span>Accueil</span>
+                    </a></li>
+                    <li><a href="fonctionnalites.html" class="nav-link">
+                        <i class="fas fa-cogs"></i> 
+                        <span>Fonctionnalités</span>
+                    </a></li>
+                    <li><a href="tarifs.html" class="nav-link">
+                        <i class="fas fa-euro-sign"></i> 
+                        <span>Tarifs</span>
+                    </a></li>
+                    <li><a href="contact.html" class="nav-link active">
+                        <i class="fas fa-envelope"></i> 
+                        <span>Contact</span>
+                    </a></li>
+                </ul>
+            </div>
 
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
         </div>
     </nav>
 
     <!-- Page Contact -->
-    <section class="page-content">
+    <section class="section page-content">
         <div class="container">
             <h1 class="section-title">Contactez-nous</h1>
             <p class="section-subtitle">
@@ -134,7 +143,7 @@
                 <div class="footer-section">
                     <div class="logo">
                         <i class="fas fa-envelope-open-text"></i>
-                        EmailSortPro
+                        <span>EmailSortPro</span>
                     </div>
                     <p>Scanner d'emails intelligent avec IA</p>
                 </div>
@@ -158,13 +167,8 @@
         </div>
     </footer>
 
+    <script src="script.js"></script>
     <script>
-        // Menu mobile
-        function toggleMobileMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
-        }
-
         // Templates de messages pré-configurés
         const messageTemplates = {
             "Demande de devis EmailSortPro": `Bonjour,
@@ -320,12 +324,12 @@ Cordialement,`
             document.body.style.overflow = 'auto';
         }
 
-        // Gestion du formulaire de contact - NOUVEAU SYSTÈME SANS MAILTO
+        // Gestion du formulaire de contact
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('contactForm');
             
             form.addEventListener('submit', function(e) {
-                e.preventDefault(); // Empêche le comportement par défaut
+                e.preventDefault();
                 
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
@@ -347,9 +351,8 @@ Cordialement,`
                 submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
                 submitBtn.disabled = true;
                 
-                // Simulation d'envoi (remplace complètement le système mailto)
+                // Simulation d'envoi
                 setTimeout(() => {
-                    // Succès simulé
                     submitBtn.innerHTML = '<i class="fas fa-check"></i> Message envoyé !';
                     submitBtn.style.background = '#16a34a';
                     
@@ -364,29 +367,7 @@ Cordialement,`
                         submitBtn.disabled = false;
                     }, 2000);
                     
-                    // ICI vous pouvez ajouter votre vraie logique d'envoi d'email
-                    // Par exemple avec fetch() vers votre API ou service d'email
-                    
                 }, 2000);
-            });
-
-            // Fermer le menu mobile en cliquant sur un lien
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    const mobileNavLinks = document.querySelector('.nav-links');
-                    mobileNavLinks.classList.remove('active');
-                });
-            });
-
-            // Fermer le menu mobile en cliquant ailleurs
-            document.addEventListener('click', function(e) {
-                const navbar = document.querySelector('.navbar');
-                const mobileMenu = document.querySelector('.nav-links');
-                
-                if (!navbar.contains(e.target) && mobileMenu.classList.contains('active')) {
-                    mobileMenu.classList.remove('active');
-                }
             });
 
             // Fermer notification avec Escape
@@ -396,12 +377,10 @@ Cordialement,`
                 }
             });
         });
-
-        console.log('🚀 EmailSortPro Contact - Nouveau système chargé avec succès!');
     </script>
 
     <style>
-        /* Styles complets pour la page contact */
+        /* Styles spécifiques pour la page contact */
         .page-content {
             padding-top: 70px;
             min-height: calc(100vh - 70px);
@@ -599,51 +578,6 @@ Cordialement,`
 
         .btn-close:hover {
             background: #5a67d8;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1f2937;
-            color: white;
-            padding: 3rem 2rem 1rem;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: #667eea;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section a {
-            color: #d1d5db;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: #667eea;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #374151;
-            color: #9ca3af;
         }
 
         /* Responsive */
