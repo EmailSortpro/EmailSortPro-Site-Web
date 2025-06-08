@@ -92,12 +92,204 @@ function closeMobileMenu() {
     document.body.style.overflow = '';
 }
 
-// Gestion du formulaire de contact
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    if (!contactForm) return;
+// Messages pré-configurés pour chaque type de demande
+const contactMessages = {
+    demo: {
+        title: "Demande de démonstration",
+        message: `Bonjour,
 
-    contactForm.addEventListener('submit', function(e) {
+Je souhaite découvrir EmailSortPro en action et bénéficier d'une démonstration personnalisée.
+
+Informations sur mon contexte :
+- Nombre d'utilisateurs : [À compléter]
+- Plateforme email principale : Outlook / Gmail
+- Besoins spécifiques : [À préciser]
+
+Merci de me proposer un créneau pour une démonstration.
+
+Cordialement,`,
+        showPhone: true,
+        submitText: "Demander une démonstration"
+    },
+    quote: {
+        title: "Demande de devis",
+        message: `Bonjour,
+
+Je souhaite obtenir un devis personnalisé pour EmailSortPro.
+
+Informations sur mon entreprise :
+- Secteur d'activité : [À compléter]
+- Nombre d'utilisateurs : [À sélectionner ci-dessus]
+- Volume d'emails mensuel estimé : [À préciser]
+- Budget prévisionnel : [Optionnel]
+
+J'aimerais également connaître :
+- Les tarifs dégressifs disponibles
+- Les conditions de mise en place
+- Les options de support incluses
+
+Merci pour votre retour rapide.
+
+Cordialement,`,
+        showPhone: false,
+        submitText: "Demander un devis"
+    },
+    trial: {
+        title: "Demande d'essai gratuit",
+        message: `Bonjour,
+
+Je souhaite commencer un essai gratuit de 14 jours d'EmailSortPro.
+
+Informations :
+- Plateforme email : Outlook / Gmail
+- Nombre d'utilisateurs pour l'essai : [À sélectionner]
+- Objectifs de test : Gagner du temps sur le tri des emails, améliorer l'organisation
+
+Pouvez-vous m'envoyer les informations pour démarrer l'essai ?
+
+Merci,`,
+        showPhone: false,
+        submitText: "Démarrer l'essai gratuit"
+    },
+    support: {
+        title: "Demande de support technique",
+        message: `Bonjour,
+
+J'ai besoin d'aide concernant EmailSortPro.
+
+Nature de ma demande :
+- [Précisez : Installation, Configuration, Utilisation, Bug, Autre]
+
+Description du problème :
+[Décrivez votre problème en détail]
+
+Informations techniques :
+- Version d'Outlook/Gmail : 
+- Système d'exploitation : 
+- Navigateur (si applicable) : 
+
+Merci pour votre aide.
+
+Cordialement,`,
+        showPhone: true,
+        submitText: "Demander de l'aide"
+    },
+    partnership: {
+        title: "Demande de partenariat",
+        message: `Bonjour,
+
+Je suis intéressé(e) par un partenariat avec EmailSortPro.
+
+Mon profil :
+- Type d'activité : [Intégrateur, Revendeur, Consultant, Autre]
+- Entreprise/Structure : [À compléter ci-dessus]
+- Zone géographique d'intervention : 
+- Expérience dans les solutions email/productivité : 
+
+Objectifs du partenariat :
+- Proposer EmailSortPro à mes clients
+- Intégration dans mes solutions existantes
+- [Autre à préciser]
+
+Merci de me transmettre les informations sur votre programme partenaire.
+
+Cordialement,`,
+        showPhone: true,
+        submitText: "Proposer un partenariat"
+    },
+    other: {
+        title: "Autre demande",
+        message: `Bonjour,
+
+J'ai une question spécifique concernant EmailSortPro :
+
+[Décrivez votre demande ici]
+
+Merci pour votre réponse.
+
+Cordialement,`,
+        showPhone: false,
+        submitText: "Envoyer ma demande"
+    }
+};
+
+// Fonction pour sélectionner un type de contact
+function selectContactType(type) {
+    // Marquer la carte comme sélectionnée
+    document.querySelectorAll('.contact-type-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    document.querySelector(`[data-type="${type}"]`).classList.add('selected');
+    
+    // Afficher le formulaire avec le message pré-configuré
+    setTimeout(() => {
+        showContactForm(type);
+    }, 300);
+}
+
+// Fonction pour afficher le formulaire avec le message pré-configuré
+function showContactForm(type) {
+    const config = contactMessages[type];
+    if (!config) return;
+    
+    // Mettre à jour le titre
+    document.getElementById('formTitle').textContent = config.title;
+    
+    // Pré-remplir le message
+    document.getElementById('message').value = config.message;
+    
+    // Définir le type de contact
+    document.getElementById('contactType').value = type;
+    
+    // Afficher/masquer le champ téléphone
+    const phoneGroup = document.getElementById('phoneGroup');
+    if (config.showPhone) {
+        phoneGroup.style.display = 'block';
+        document.getElementById('phone').required = true;
+    } else {
+        phoneGroup.style.display = 'none';
+        document.getElementById('phone').required = false;
+    }
+    
+    // Mettre à jour le texte du bouton
+    document.querySelector('.submit-btn span').textContent = config.submitText;
+    
+    // Afficher le formulaire
+    document.getElementById('contactForm').style.display = 'block';
+    
+    // Scroll vers le formulaire
+    document.getElementById('contactForm').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+// Fonction pour réinitialiser le formulaire
+function resetContactForm() {
+    // Masquer le formulaire
+    document.getElementById('contactForm').style.display = 'none';
+    
+    // Désélectionner toutes les cartes
+    document.querySelectorAll('.contact-type-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    // Réinitialiser le formulaire
+    document.getElementById('mainContactForm').reset();
+    
+    // Scroll vers les options
+    document.querySelector('.contact-types-grid').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
+}
+
+// Gestion du formulaire de contact principal
+function initMainContactForm() {
+    const mainContactForm = document.getElementById('mainContactForm');
+    if (!mainContactForm) return;
+
+    mainContactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
         // Validation du formulaire
@@ -111,10 +303,15 @@ function initContactForm() {
         // État de chargement
         setLoadingState(submitButton, true, 'Envoi en cours...');
         
+        // Récupérer les données du formulaire
+        const formData = new FormData(this);
+        const contactType = formData.get('contactType');
+        const config = contactMessages[contactType] || contactMessages.other;
+        
         // Simulation d'envoi (remplacer par vraie logique d'envoi)
         setTimeout(() => {
-            showNotification('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.', 'success');
-            this.reset();
+            showNotification(`Votre demande de ${config.title.toLowerCase()} a été envoyée avec succès ! Nous vous répondrons sous 24h.`, 'success');
+            resetContactForm();
             setLoadingState(submitButton, false);
             submitButton.innerHTML = originalContent;
         }, 2000);
@@ -501,6 +698,7 @@ function initializeApp() {
         // Initialiser tous les composants
         initMobileMenu();
         initContactForm();
+        initMainContactForm(); // Nouveau formulaire de contact
         initScrollAnimations();
         initSmoothScroll();
         initAccessibility();
@@ -532,3 +730,5 @@ window.toggleMobileMenu = toggleMobileMenu;
 window.showNotification = showNotification;
 window.setLoadingState = setLoadingState;
 window.validateForm = validateForm;
+window.selectContactType = selectContactType;
+window.resetContactForm = resetContactForm;
