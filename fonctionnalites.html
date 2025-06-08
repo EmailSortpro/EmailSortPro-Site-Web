@@ -14,25 +14,34 @@
         <div class="nav-container">
             <div class="logo">
                 <i class="fas fa-envelope-open-text"></i>
-                EmailSortPro
+                <span>EmailSortPro</span>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">
-                    <i class="fas fa-home"></i> Accueil
-                </a></li>
-                <li><a href="fonctionnalites.html" class="nav-link active">
-                    <i class="fas fa-cogs"></i> Fonctionnalités
-                </a></li>
-                <li><a href="tarifs.html" class="nav-link">
-                    <i class="fas fa-euro-sign"></i> Tarifs
-                </a></li>
-                <li><a href="contact.html" class="nav-link">
-                    <i class="fas fa-envelope"></i> Contact
-                </a></li>
-            </ul>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> 
+                        <span>Accueil</span>
+                    </a></li>
+                    <li><a href="fonctionnalites.html" class="nav-link active">
+                        <i class="fas fa-cogs"></i> 
+                        <span>Fonctionnalités</span>
+                    </a></li>
+                    <li><a href="tarifs.html" class="nav-link">
+                        <i class="fas fa-euro-sign"></i> 
+                        <span>Tarifs</span>
+                    </a></li>
+                    <li><a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope"></i> 
+                        <span>Contact</span>
+                    </a></li>
+                </ul>
+            </div>
 
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
         </div>
     </nav>
@@ -40,9 +49,9 @@
     <!-- Page Fonctionnalités -->
     <section class="section page-content">
         <div class="container">
-            <h1 class="section-title">Toutes les fonctionnalités incluses</h1>
+            <h1 class="section-title">Fonctionnalités puissantes</h1>
             <p class="section-subtitle">
-                Un service complet pour une gestion d'emails efficace
+                Tout ce dont vous avez besoin pour une gestion d'emails efficace
             </p>
             
             <div class="features-grid">
@@ -50,48 +59,48 @@
                     <div class="feature-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3>Analyse intelligente des emails</h3>
-                    <p>Moteur d'intelligence artificielle avec machine learning qui comprend le contenu, le contexte et l'importance de chaque email pour un tri optimal.</p>
+                    <h3>Algorithme IA avancé</h3>
+                    <p>Moteur d'intelligence artificielle avec machine learning qui apprend de vos habitudes pour une précision de tri optimale et évolutive.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-sitemap"></i>
+                        <i class="fas fa-cog"></i>
                     </div>
-                    <h3>Classement automatique</h3>
-                    <p>Organisation multi-niveaux par expéditeur, domaine, urgence et contexte métier avec apprentissage adaptatif de vos préférences.</p>
+                    <h3>Configuration personnalisée</h3>
+                    <p>Mots-clés sur mesure, règles métier spécifiques et paramètres avancés pour adapter l'algorithme à votre environnement professionnel.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-tasks"></i>
                     </div>
-                    <h3>Création de tâches personnalisées</h3>
-                    <p>Génération automatique de tâches avec priorisation intelligente, échéances suggérées et suivi contextuel des actions requises.</p>
+                    <h3>Tâches intelligentes</h3>
+                    <p>Création automatique de tâches avec priorisation IA, suggestions contextuelles et suivi intelligent des deadlines.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Tri intelligent par domaine</h3>
+                    <p>Classification automatique multi-niveaux par expéditeur, domaine et contexte métier avec apprentissage adaptatif.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <h3>Réponses intelligentes</h3>
-                    <p>Suggestions de réponses contextuelles basées sur l'analyse sémantique et le style de communication de votre entreprise.</p>
+                    <h3>Réponses IA contextuelles</h3>
+                    <p>Génération automatique de réponses intelligentes basées sur l'analyse sémantique et le contexte professionnel de vos emails.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-filter"></i>
+                        <i class="fas fa-chart-pie"></i>
                     </div>
-                    <h3>Tri avancé</h3>
-                    <p>Filtrage intelligent par importance, urgence, type de contenu et relations professionnelles pour une boîte de réception parfaitement organisée.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Analytics et rapports</h3>
-                    <p>Tableaux de bord détaillés sur vos habitudes email, temps de traitement et suggestions d'optimisation de votre productivité.</p>
+                    <h3>Analytics IA avancées</h3>
+                    <p>Tableaux de bord intelligents avec insights prédictifs, analyse comportementale et optimisation continue des performances.</p>
                 </div>
             </div>
 
@@ -101,8 +110,8 @@
                 <div class="ai-features-grid">
                     <div class="ai-feature">
                         <div class="ai-feature-icon">⚡</div>
-                        <div class="ai-feature-title">Traitement en temps réel</div>
-                        <div class="ai-feature-desc">Analyse instantanée</div>
+                        <div class="ai-feature-title">Algorithme neural</div>
+                        <div class="ai-feature-desc">Apprentissage profond</div>
                     </div>
                     <div class="ai-feature">
                         <div class="ai-feature-icon">🎯</div>
@@ -110,13 +119,13 @@
                         <div class="ai-feature-desc">S'améliore avec l'usage</div>
                     </div>
                     <div class="ai-feature">
-                        <div class="ai-feature-icon">🔒</div>
-                        <div class="ai-feature-title">Sécurité garantie</div>
-                        <div class="ai-feature-desc">Conformité RGPD</div>
+                        <div class="ai-feature-icon">🚀</div>
+                        <div class="ai-feature-title">Traitement temps réel</div>
+                        <div class="ai-feature-desc">Analyse instantanée</div>
                     </div>
                     <div class="ai-feature">
                         <div class="ai-feature-icon">🔮</div>
-                        <div class="ai-feature-title">Intelligence prédictive</div>
+                        <div class="ai-feature-title">Prédictions intelligentes</div>
                         <div class="ai-feature-desc">Anticipe vos besoins</div>
                     </div>
                 </div>
@@ -155,7 +164,7 @@
                 <div class="footer-section">
                     <div class="logo">
                         <i class="fas fa-envelope-open-text"></i>
-                        EmailSortPro
+                        <span>EmailSortPro</span>
                     </div>
                     <p>Scanner d'emails intelligent avec IA</p>
                 </div>
@@ -164,13 +173,12 @@
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
-                        <li><a href="tarifs.html">Tarifs</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>Utilisez notre formulaire de contact pour nous joindre selon vos besoins.</p>
+                    <p>Une question ? Contactez-nous via le formulaire sur la page tarifs.</p>
                 </div>
             </div>
             <div class="footer-bottom">
