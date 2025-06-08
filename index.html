@@ -15,25 +15,30 @@
         <div class="nav-container">
             <div class="logo">
                 <i class="fas fa-envelope-open-text"></i>
-                EmailSortPro
+                <span>EmailSortPro</span>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link active">
-                    <i class="fas fa-home"></i> Accueil
-                </a></li>
-                <li><a href="fonctionnalites.html" class="nav-link">
-                    <i class="fas fa-cogs"></i> Fonctionnalités
-                </a></li>
-                <li><a href="tarifs.html" class="nav-link">
-                    <i class="fas fa-euro-sign"></i> Tarifs
-                </a></li>
-                <li><a href="contact.html" class="nav-link">
-                    <i class="fas fa-envelope"></i> Contact
-                </a></li>
-            </ul>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i> 
+                        <span>Accueil</span>
+                    </a></li>
+                    <li><a href="fonctionnalites.html" class="nav-link">
+                        <i class="fas fa-cogs"></i> 
+                        <span>Fonctionnalités</span>
+                    </a></li>
+                    <li><a href="tarifs.html" class="nav-link">
+                        <i class="fas fa-euro-sign"></i> 
+                        <span>Tarifs</span>
+                    </a></li>
+                </ul>
+            </div>
 
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                <i class="fas fa-bars"></i>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
         </div>
     </nav>
@@ -43,14 +48,16 @@
         <div class="hero-content">
             <h1>Votre boîte mail <br>enfin organisée</h1>
             <p class="hero-subtitle">
-                IA • Tri automatique • Création de tâches • Réponses intelligentes
+                IA • Tri automatique • Création de tâches
             </p>
             <div class="hero-buttons">
-                <a href="contact.html" class="btn-primary">
-                    <i class="fas fa-play"></i> Tester gratuitement
+                <a href="tarifs.html#contact" class="btn-primary">
+                    <i class="fas fa-envelope"></i> 
+                    <span>Nous contacter</span>
                 </a>
                 <a href="fonctionnalites.html" class="btn-secondary">
-                    <i class="fas fa-info-circle"></i> En savoir plus
+                    <i class="fas fa-info-circle"></i> 
+                    <span>En savoir plus</span>
                 </a>
             </div>
         </div>
@@ -87,7 +94,7 @@
     <!-- Comment ça marche -->
     <section class="section steps-section">
         <div class="container">
-            <h2 class="section-title">4 étapes, c'est tout</h2>
+            <h2 class="section-title">3 étapes, c'est tout</h2>
             
             <div class="steps">
                 <div class="step">
@@ -101,14 +108,9 @@
                     <p>IA puissante • Machine Learning pour un tri ultra-précis</p>
                 </div>
                 <div class="step">
-                    <div class="step-icon">📋</div>
-                    <h3>Tâches créées</h3>
-                    <p>Création automatique de tâches personnalisées</p>
-                </div>
-                <div class="step">
                     <div class="step-icon">✨</div>
                     <h3>Emails organisés</h3>
-                    <p>Tri intelligent et réponses automatiques</p>
+                    <p>Tâches créées, tout trié</p>
                 </div>
             </div>
         </div>
@@ -121,7 +123,7 @@
                 <div class="footer-section">
                     <div class="logo">
                         <i class="fas fa-envelope-open-text"></i>
-                        EmailSortPro
+                        <span>EmailSortPro</span>
                     </div>
                     <p>Scanner d'emails intelligent avec IA</p>
                 </div>
@@ -131,12 +133,11 @@
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
                         <li><a href="tarifs.html">Tarifs</a></li>
-                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>Utilisez notre formulaire de contact pour nous joindre selon vos besoins.</p>
+                    <p>Une question ? Contactez-nous via le formulaire sur la page tarifs.</p>
                 </div>
             </div>
             <div class="footer-bottom">
