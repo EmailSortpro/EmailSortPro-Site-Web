@@ -1,1657 +1,276 @@
-/* Reset et styles de base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    max-width: 100%;
-}
-
-html {
-    scroll-behavior: smooth;
-    overflow-x: hidden;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    color: #1f2937;
-    overflow-x: hidden;
-    width: 100%;
-}
-
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid #e5e7eb;
-    z-index: 1000;
-    padding: 0;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-    padding: 0 1rem;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #667eea;
-    text-decoration: none;
-}
-
-.logo span {
-    display: inline-block;
-}
-
-.nav-menu {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #6b7280;
-    font-weight: 500;
-    transition: color 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0.5rem 0;
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-    color: #667eea;
-}
-
-.nav-links a.active {
-    position: relative;
-}
-
-.nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: #667eea;
-    border-radius: 1px;
-}
-
-/* Menu mobile hamburger */
-.mobile-menu-btn {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: relative;
-    z-index: 1001;
-}
-
-.hamburger-line {
-    width: 25px;
-    height: 3px;
-    background-color: #667eea;
-    margin: 3px 0;
-    transition: all 0.3s ease;
-    border-radius: 2px;
-}
-
-.mobile-menu-btn.active .hamburger-line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.mobile-menu-btn.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-btn.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
-
-/* Contenu des pages */
-.page-content {
-    padding-top: 6rem;
-}
-
-.section {
-    padding: 5rem 1rem;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #1f2937;
-}
-
-.section-subtitle {
-    text-align: center;
-    font-size: 1.2rem;
-    color: #6b7280;
-    margin-bottom: 4rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 6rem 1rem 4rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    margin-top: 70px;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="10" cy="60" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-    animation: float 20s infinite linear;
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-100px); }
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-    width: 100%;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    line-height: 1.1;
-}
-
-.hero-subtitle {
-    font-size: 1.4rem;
-    margin-bottom: 3rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.btn-primary,
-.btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 15px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-}
-
-.btn-primary {
-    background: white;
-    color: #667eea;
-    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(255, 255, 255, 0.4);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    font-weight: 600;
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.5);
-}
-
-/* Problem/Solution section */
-.problem-solution-section {
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-    padding: 4rem 1rem;
-}
-
-.problem-block {
-    margin-bottom: 4rem;
-}
-
-.problem-title {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #dc2626;
-    margin-bottom: 3rem;
-}
-
-.problem-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.problem-item {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(220, 38, 38, 0.1);
-    border-left: 4px solid #dc2626;
-}
-
-.problem-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.problem-item h3 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 1rem;
-}
-
-.problem-item p {
-    color: #6b7280;
-    line-height: 1.6;
-}
-
-.problem-conclusion {
-    background: #fef2f2;
-    border: 2px solid #fecaca;
-    border-radius: 15px;
-    padding: 1.5rem;
-    text-align: center;
-    margin-top: 2rem;
-}
-
-.problem-conclusion p {
-    color: #dc2626;
-    font-size: 1.1rem;
-    margin: 0;
-}
-
-.solution-block {
-    position: relative;
-}
-
-.solution-title {
-    text-align: center;
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #1f2937;
-    margin-bottom: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.solution-icon {
-    font-size: 2.5rem;
-}
-
-.solution-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.solution-item {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.1);
-    border-left: 4px solid #667eea;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.solution-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
-}
-
-.solution-number {
-    position: absolute;
-    top: -15px;
-    left: 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-
-.solution-item h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
-}
-
-.solution-item p {
-    color: #6b7280;
-    line-height: 1.6;
-}
-
-.solution-item strong {
-    color: #667eea;
-    font-weight: 600;
-}
-
-.solution-result {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-}
-
-.result-card {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 2rem 3rem;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-    max-width: 600px;
-    width: 100%;
-}
-
-.result-icon {
-    font-size: 3rem;
-    flex-shrink: 0;
-}
-
-.result-content h4 {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: white;
-}
-
-.result-content p {
-    font-size: 1rem;
-    opacity: 0.95;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.result-content strong {
-    color: white;
-    font-weight: 700;
-}
-
-/* Avantages */
-.advantages-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    text-align: center;
-    padding: 0 1rem;
-}
-
-.advantage-item {
-    padding: 1rem;
-    min-width: 0; /* Permet au contenu de se rétrécir */
-    word-wrap: break-word;
-}
-
-.advantage-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.advantage-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #1f2937;
-    word-wrap: break-word;
-}
-
-.advantage-item p {
-    color: #6b7280;
-    word-wrap: break-word;
-    line-height: 1.4;
-}
-
-/* Étapes */
-.steps-section {
-    background: #f8fafc;
-}
-
-.steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
-}
-
-.step {
-    text-align: center;
-    position: relative;
-}
-
-.step-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-}
-
-.step h3 {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #1f2937;
-}
-
-.step p {
-    color: #6b7280;
-    line-height: 1.6;
-}
-
-/* Fonctionnalités */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
-}
-
-.feature-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2.5rem;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border: 1px solid #f1f5f9;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-}
-
-.feature-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 1.5rem;
-}
-
-.feature-card h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #1f2937;
-}
-
-.feature-card p {
-    color: #6b7280;
-    line-height: 1.6;
-}
-
-/* Section IA */
-.ai-technology-section {
-    text-align: center;
-    margin-top: 4rem;
-    padding: 3rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 20px;
-    color: white;
-}
-
-.ai-technology-section h3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: white;
-}
-
-.ai-features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.ai-feature {
-    text-align: center;
-}
-
-.ai-feature-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.ai-feature-title {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.ai-feature-desc {
-    opacity: 0.9;
-    font-size: 0.9rem;
-}
-
-.ai-description {
-    opacity: 0.9;
-    font-size: 1.1rem;
-}
-
-/* Compatibilité */
-.compatibility-section {
-    text-align: center;
-    margin-top: 4rem;
-    padding: 3rem;
-    background: #f8fafc;
-    border-radius: 20px;
-}
-
-.compatibility-section h3 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    color: #1f2937;
-}
-
-.compatibility-grid {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.compatibility-item {
-    text-align: center;
-}
-
-.compatibility-item i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.compatibility-item i.fa-microsoft {
-    color: #0078d4;
-}
-
-.compatibility-item i.fa-google {
-    color: #ea4335;
-}
-
-.compatibility-name {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-
-.compatibility-status.available {
-    color: #16a34a;
-    font-size: 0.9rem;
-}
-
-.compatibility-status.coming {
-    color: #f59e0b;
-    font-size: 0.9rem;
-}
-
-.enterprise-note {
-    margin-top: 2rem;
-    color: #6b7280;
-}
-
-/* Tarifs */
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 4rem;
-}
-
-.pricing-card {
-    background: white;
-    border-radius: 20px;
-    padding: 3rem 2rem;
-    text-align: center;
-    border: 2px solid #f1f5f9;
-    transition: all 0.3s ease;
-    position: relative;
-}
-
-.pricing-card.featured {
-    border-color: #667eea;
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-}
-
-.pricing-card.featured::before {
-    content: 'Recommandé';
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 5px 20px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.pricing-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-}
-
-.pricing-card.featured:hover {
-    transform: scale(1.05) translateY(-5px);
-}
-
-.plan-name {
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #1f2937;
-}
-
-.plan-price {
-    font-size: 3rem;
-    font-weight: 800;
-    color: #667eea;
-    margin-bottom: 0.5rem;
-}
-
-.plan-period {
-    color: #6b7280;
-    margin-bottom: 2rem;
-}
-
-.plan-features {
-    list-style: none;
-    margin-bottom: 2rem;
-    text-align: left;
-}
-
-.plan-features li {
-    padding: 0.5rem 0;
-    color: #6b7280;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.plan-features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: #16a34a;
-    font-weight: bold;
-}
-
-.plan-button {
-    width: 100%;
-    padding: 15px;
-    border-radius: 10px;
-    border: none;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-size: 1rem;
-}
-
-.plan-button.primary {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.plan-button.secondary {
-    background: #f8fafc;
-    color: #667eea;
-    border: 2px solid #e5e7eb;
-}
-
-.plan-button:hover {
-    transform: translateY(-2px);
-}
-
-/* Informations tarifs */
-.pricing-info {
-    text-align: center;
-    margin-top: 4rem;
-    padding: 2rem;
-    background: #f8fafc;
-    border-radius: 15px;
-}
-
-.pricing-info h4 {
-    margin-bottom: 1rem;
-    color: #1f2937;
-}
-
-.pricing-details {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.pricing-detail {
-    text-align: center;
-}
-
-.pricing-detail strong {
-    color: #1f2937;
-}
-
-.pricing-detail span {
-    color: #6b7280;
-}
-
-/* Contact */
-.contact-section {
-    margin-top: 5rem;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: 3rem;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 2rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #374151;
-}
-
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 12px 16px;
-    border: 2px solid #e5e7eb;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    outline: none;
-    border-color: #667eea;
-}
-
-.form-group textarea {
-    height: 120px;
-    resize: vertical;
-}
-
-.submit-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
-    color: white !important;
-}
-
-/* Contact page styles */
-.contact-types-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-    margin-bottom: 4rem;
-}
-
-.contact-type-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2.5rem;
-    text-align: center;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    cursor: pointer;
-}
-
-.contact-type-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-    border-color: #667eea;
-}
-
-.contact-type-card.selected {
-    border-color: #667eea;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.contact-type-icon {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: white;
-    margin: 0 auto 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.contact-type-card.selected .contact-type-icon {
-    background: white;
-    color: #667eea;
-}
-
-.contact-type-card h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: #1f2937;
-}
-
-.contact-type-card.selected h3 {
-    color: white;
-}
-
-.contact-type-card p {
-    color: #6b7280;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.contact-type-card.selected p {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.contact-type-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-}
-
-.contact-type-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-}
-
-.contact-type-card.selected .contact-type-btn {
-    background: white;
-    color: #667eea;
-}
-
-.contact-form-container {
-    max-width: 700px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.form-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.form-header h3 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.back-btn {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.9rem;
-}
-
-.back-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-.contact-form {
-    padding: 0;
-}
-
-.contact-form form {
-    padding: 2.5rem;
-}
-
-.required {
-    color: #dc2626;
-}
-
-.contact-info-section {
-    margin-top: 5rem;
-    text-align: center;
-}
-
-.contact-info-section h3 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    color: #1f2937;
-}
-
-.contact-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.contact-info-item {
-    text-align: center;
-    padding: 2rem;
-    background: #f8fafc;
-    border-radius: 15px;
-}
-
-.contact-info-icon {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    color: white;
-    margin: 0 auto 1rem;
-}
-
-.contact-info-item h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: #1f2937;
-}
-
-.contact-info-item p {
-    color: #6b7280;
-    line-height: 1.6;
-}
-
-/* Footer updates */
-.footer {
-    background: #1f2937;
-    color: white;
-    padding: 3rem 1rem 1rem;
-    margin-top: 5rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-section h4 {
-    margin-bottom: 1rem;
-    color: #667eea;
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
-
-.footer-section a {
-    color: #d1d5db;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-section a:hover {
-    color: #667eea;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid #374151;
-    color: #9ca3af;
-}
-
-/* Responsive Mobile */
-@media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: flex;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: white;
-        border-bottom: 1px solid #e5e7eb;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        transform: translateY(-100%);
-        transition: transform 0.3s ease;
-        z-index: 999;
-    }
-
-    .nav-menu.active {
-        transform: translateY(0);
-    }
-
-    .nav-links {
-        flex-direction: column;
-        padding: 1rem;
-        gap: 0;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links a {
-        padding: 1rem;
-        width: 100%;
-        border-bottom: 1px solid #f1f5f9;
-        justify-content: flex-start;
-    }
-
-    .nav-links a:last-child {
-        border-bottom: none;
-    }
-
-    .nav-links a.active::after {
-        display: none;
-    }
-
-    /* Hero responsive */
-    .hero {
-        padding: 4rem 1rem 3rem;
-        min-height: 400px;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        max-width: 280px;
-        justify-content: center;
-        padding: 15px 20px;
-    }
-
-    /* Pricing responsive */
-    .pricing-card.featured {
-        transform: none;
-        margin-top: 1rem;
-    }
-
-    .pricing-card.featured:hover {
-        transform: translateY(-5px);
-    }
-
-    /* Grids responsive */
-    .steps {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .advantages-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-
-    .ai-features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-
-    .compatibility-grid {
-        gap: 2rem;
-    }
-
-    /* Typography responsive */
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .section-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .section {
-        padding: 3rem 1rem;
-    }
-
-    /* Form responsive */
-    .contact-form {
-        padding: 2rem 1rem;
-        margin: 0 1rem;
-    }
-
-    /* Problem/Solution mobile */
-    .problem-solution-section {
-        padding: 3rem 0.5rem;
-    }
-
-    .problem-title,
-    .solution-title {
-        font-size: 1.8rem;
-        padding: 0 0.5rem;
-    }
-
-    .solution-title {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .solution-icon {
-        font-size: 2rem;
-    }
-
-    .problem-grid,
-    .solution-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0 0.5rem;
-    }
-
-    .problem-item,
-    .solution-item {
-        padding: 1.5rem;
-    }
-
-    .problem-icon {
-        font-size: 2.5rem;
-    }
-
-    .solution-number {
-        width: 30px;
-        height: 30px;
-        font-size: 1rem;
-        top: -12px;
-    }
-
-    .result-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 1.5rem;
-        margin: 0 0.5rem;
-    }
-
-    .result-icon {
-        font-size: 2.5rem;
-    }
-
-    .result-content h4 {
-        font-size: 1.2rem;
-    }
-
-    .result-content p {
-        font-size: 0.95rem;
-    }
-
-    .problem-conclusion {
-        margin: 0 0.5rem;
-        padding: 1.2rem;
-    }
-
-    .problem-conclusion p {
-        font-size: 1rem;
-    }
-    .section {
-        padding: 3rem 0.5rem;
-    }
-
-    .container {
-        padding: 0 0.5rem;
-        max-width: 100%;
-        overflow-x: hidden;
-    }
-
-    /* Advantages mobile fix */
-    .advantages-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        padding: 0;
-        margin: 0 -0.5rem;
-    }
-
-    .advantage-item {
-        padding: 1rem 0.5rem;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .advantage-icon {
-        font-size: 2.2rem;
-        margin-bottom: 0.8rem;
-        flex-shrink: 0;
-    }
-
-    .advantage-item h3 {
-        font-size: 1rem;
-        margin-bottom: 0.3rem;
-        line-height: 1.2;
-        word-break: break-word;
-        hyphens: auto;
-    }
-
-    .advantage-item p {
-        font-size: 0.85rem;
-        line-height: 1.3;
-        margin: 0;
-        word-break: break-word;
-        hyphens: auto;
-    }
-    .contact-types-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .contact-type-card {
-        padding: 2rem 1.5rem;
-    }
-
-    .contact-type-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 1.8rem;
-    }
-
-    .form-header {
-        padding: 1.5rem;
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-
-    .form-header h3 {
-        font-size: 1.3rem;
-    }
-
-    .contact-form form {
-        padding: 2rem 1.5rem;
-    }
-
-    .contact-info-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .contact-info-item {
-        padding: 1.5rem;
-    }
-
-    /* Section adjustments for mobile */
-    .contact-types-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .contact-type-card {
-        padding: 2rem 1.5rem;
-    }
-
-    .contact-type-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 1.8rem;
-    }
-
-    .form-header {
-        padding: 1.5rem;
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-
-    .form-header h3 {
-        font-size: 1.3rem;
-    }
-
-    .contact-form form {
-        padding: 2rem 1.5rem;
-    }
-
-    .contact-info-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .contact-info-item {
-        padding: 1.5rem;
-    }
-
-    /* Hero responsive improvements */
-    .hero {
-        padding: 3rem 0.5rem 2rem;
-        min-height: 350px;
-    }
-
-    .hero-content {
-        padding: 0 0.5rem;
-    }
-
-    /* Steps mobile improvement */
-    .steps {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 0 0.5rem;
-    }
-
-    .step {
-        padding: 1rem;
-    }
-
-    .step-icon {
-        font-size: 3rem;
-    }
-
-    /* Features mobile improvement */
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 0 0.5rem;
-    }
-
-    .feature-card {
-        padding: 2rem 1.5rem;
-    }
-
-    /* AI section mobile */
-    .ai-features-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-    }
-
-    .ai-feature {
-        padding: 0.5rem;
-    }
-
-    .ai-feature-icon {
-        font-size: 2rem;
-    }
-
-    .ai-feature-title {
-        font-size: 0.9rem;
-    }
-
-    .ai-feature-desc {
-        font-size: 0.8rem;
-    }
-
-    /* Compatibility mobile */
-    .compatibility-grid {
-        gap: 2rem;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Pricing mobile improvements */
-    .pricing-grid {
-        gap: 1.5rem;
-        padding: 0 0.5rem;
-    }
-
-    .pricing-card {
-        padding: 2rem 1.5rem;
-    }
-
-    .pricing-card.featured {
-        transform: none;
-        margin-top: 1rem;
-    }
-
-    .pricing-card.featured:hover {
-        transform: translateY(-5px);
-    }
-
-    .pricing-details {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    /* Form mobile improvements */
-    .contact-form {
-        padding: 2rem 1rem;
-        margin: 0 0.5rem;
-    }
-
-    /* Footer mobile */
-    .footer {
-        padding: 2rem 0.5rem 1rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
-    }
-
-    /* Global mobile typography */
-    .section-title {
-        font-size: 1.8rem;
-        padding: 0 0.5rem;
-    }
-
-    .section-subtitle {
-        font-size: 1rem;
-        padding: 0 0.5rem;
-    }
-
-    /* Ensure no horizontal overflow */
-    body {
-        overflow-x: hidden;
-    }
-
-    * {
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    .container {
-        padding: 0 0.5rem;
-    }
-
-    .pricing-grid {
-        gap: 1.5rem;
-    }
-
-    .pricing-details {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .footer {
-        padding: 2rem 1rem 1rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        text-align: center;
-    }
-}
-
-/* Responsive Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .hero h1 {
-        font-size: 3rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.3rem;
-    }
-
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .advantages-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .steps {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .ai-features-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-/* Animation pour les transitions */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-up {
-    animation: fadeInUp 0.5s ease;
-}
-
-/* Utilitaires */
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailSortPro - Scanner d'emails intelligent avec IA</title>
+    <meta name="description" content="Triez, organisez et gérez vos emails automatiquement avec l'IA. Économisez jusqu'à 3h par jour avec EmailSortPro.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-envelope-open-text"></i>
+                <span>EmailSortPro</span>
+            </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i> 
+                        <span>Accueil</span>
+                    </a></li>
+                    <li><a href="fonctionnalites.html" class="nav-link">
+                        <i class="fas fa-cogs"></i> 
+                        <span>Fonctionnalités</span>
+                    </a></li>
+                    <li><a href="tarifs.html" class="nav-link">
+                        <i class="fas fa-euro-sign"></i> 
+                        <span>Tarifs</span>
+                    </a></li>
+                    <li><a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope"></i> 
+                        <span>Contact</span>
+                    </a></li>
+                </ul>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Scanner d'emails intelligent avec IA</h1>
+            <p class="hero-subtitle">
+                Transformez votre productivité avec l'intelligence artificielle. 
+                Économisez jusqu'à 3h par jour en automatisant le tri et la gestion de vos emails.
+            </p>
+            <div class="hero-buttons">
+                <a href="tarifs.html" class="btn-primary">
+                    <i class="fas fa-play"></i>
+                    <span>Essai gratuit 14 jours</span>
+                </a>
+                <a href="#problem" class="btn-secondary">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Découvrir la solution</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Problème/Solution -->
+    <section id="problem" class="problem-solution-section">
+        <div class="container">
+            <!-- Problème -->
+            <div class="problem-block">
+                <h2 class="problem-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Le problème que vous rencontrez
+                </h2>
+                
+                <div class="problem-grid">
+                    <div class="problem-item">
+                        <div class="problem-icon">😰</div>
+                        <h3>Submergé par les emails</h3>
+                        <p>Vous recevez des centaines d'emails par jour et perdez un temps précieux à les trier manuellement.</p>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <div class="problem-icon">⏰</div>
+                        <h3>Temps perdu énorme</h3>
+                        <p>Entre 2 à 4 heures par jour passées uniquement à organiser, classer et prioriser vos emails.</p>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <div class="problem-icon">🔍</div>
+                        <h3>Emails importants perdus</h3>
+                        <p>Les messages cruciaux se noient dans la masse, créant des retards et des oublis coûteux.</p>
+                    </div>
+                    
+                    <div class="problem-item">
+                        <div class="problem-icon">😫</div>
+                        <h3>Stress et surcharge</h3>
+                        <p>La boîte email devient source d'anxiété avec une productivité qui chute drastiquement.</p>
+                    </div>
+                </div>
+                
+                <div class="problem-conclusion">
+                    <p><strong>Résultat :</strong> Vous passez plus de temps à gérer vos emails qu'à créer de la valeur pour votre business.</p>
+                </div>
+            </div>
+
+            <!-- Solution -->
+            <div class="solution-block">
+                <h2 class="solution-title">
+                    <i class="fas fa-lightbulb solution-icon"></i>
+                    La solution EmailSortPro
+                </h2>
+                
+                <div class="solution-grid">
+                    <div class="solution-item">
+                        <div class="solution-number">1</div>
+                        <h3>Analyse IA instantanée</h3>
+                        <p>Notre algorithme <strong>analyse automatiquement</strong> chaque email en temps réel : expéditeur, contenu, contexte et urgence sont évalués en quelques millisecondes.</p>
+                    </div>
+                    
+                    <div class="solution-item">
+                        <div class="solution-number">2</div>
+                        <h3>Tri intelligent automatique</h3>
+                        <p><strong>Classification automatique</strong> dans les bons dossiers selon vos règles métier. Plus besoin de faire glisser manuellement vos emails.</p>
+                    </div>
+                    
+                    <div class="solution-item">
+                        <div class="solution-number">3</div>
+                        <h3>Priorisation smart</h3>
+                        <p>L'IA <strong>identifie les emails critiques</strong> et les met en avant. Les messages importants ne passent plus inaperçus.</p>
+                    </div>
+                    
+                    <div class="solution-item">
+                        <div class="solution-number">4</div>
+                        <h3>Création de tâches automatique</h3>
+                        <p><strong>Génération intelligente de tâches</strong> basée sur le contenu des emails avec dates d'échéance et priorités suggérées.</p>
+                    </div>
+                </div>
+                
+                <div class="solution-result">
+                    <div class="result-card">
+                        <div class="result-icon">🎯</div>
+                        <div class="result-content">
+                            <h4>Résultat garanti</h4>
+                            <p><strong>Économisez 3h par jour</strong> et retrouvez le contrôle total de votre communication. Boîte email organisée, aucun message important manqué.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Pourquoi choisir EmailSortPro ?</h2>
+            <p class="section-subtitle">
+                La solution IA la plus avancée du marché pour la gestion d'emails professionnels
+            </p>
+            
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Gain de temps immédiat</h3>
+                    <p>Jusqu'à 3h économisées par jour</p>
+                </div>
+                
+                <div class="advantage-item">
+                    <div class="advantage-icon">🧠</div>
+                    <h3>IA évolutive</h3>
+                    <p>Apprend de vos habitudes</p>
+                </div>
+                
+                <div class="advantage-item">
+                    <div class="advantage-icon">🛡️</div>
+                    <h3>Sécurisé RGPD</h3>
+                    <p>Conformité totale garantie</p>
+                </div>
+                
+                <div class="advantage-item">
+                    <div class="advantage-icon">🚀</div>
+                    <h3>Installation simple</h3>
+                    <p>Opérationnel en 5 minutes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment ça marche -->
+    <section class="section steps-section">
+        <div class="container">
+            <h2 class="section-title">Comment ça marche ?</h2>
+            <p class="section-subtitle">
+                Trois étapes simples pour révolutionner votre gestion d'emails
+            </p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">🔧</div>
+                    <h3>1. Installation rapide</h3>
+                    <p>Installez EmailSortPro sur Outlook en moins de 5 minutes. Configuration automatique de l'IA selon votre profil.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">🎯</div>
+                    <h3>2. Configuration intelligente</h3>
+                    <p>L'IA analyse vos emails existants pour comprendre vos habitudes et créer des règles personnalisées.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-icon">✨</div>
+                    <h3>3. Automatisation totale</h3>
+                    <p>Profitez d'une boîte email parfaitement organisée. L'IA gère tout automatiquement et s'améliore chaque jour.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Final -->
+    <section class="section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+        <div class="container" style="text-align: center;">
+            <h2 style="color: white; margin-bottom: 2rem;">Prêt à transformer votre productivité ?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">
+                Rejoignez des milliers de professionnels qui ont repris le contrôle de leur boîte email
+            </p>
+            <div class="hero-buttons">
+                <a href="tarifs.html" class="btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    <span>Commencer l'essai gratuit</span>
+                </a>
+                <a href="contact.html" class="btn-secondary">
+                    <i class="fas fa-comments"></i>
+                    <span>Demander une démo</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <span>EmailSortPro</span>
+                    </div>
+                    <p>Scanner d'emails intelligent avec IA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+                        <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Une question ? Contactez-nous via notre formulaire de contact.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EmailSortPro. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
