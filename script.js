@@ -697,8 +697,7 @@ function initializeApp() {
     try {
         // Initialiser tous les composants
         initMobileMenu();
-        initContactForm();
-        initMainContactForm(); // Nouveau formulaire de contact
+        initMainContactForm();
         initScrollAnimations();
         initSmoothScroll();
         initAccessibility();
