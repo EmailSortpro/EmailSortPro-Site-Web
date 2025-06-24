@@ -349,7 +349,7 @@ body {
 /* ===== SECTION PROBLÈME/SOLUTION ===== */
 .problem-solution-section {
     background: var(--bg-light);
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
 }
 
 .problem-solution-condensed {
@@ -933,7 +933,7 @@ body {
 
 .plan-features {
     list-style: none;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     text-align: left;
 }
 
