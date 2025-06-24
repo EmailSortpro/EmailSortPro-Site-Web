@@ -20,10 +20,10 @@
     --warning-color: #f59e0b;
     --error-color: #dc2626;
     
-    /* Espacements */
+    /* Espacements condensés */
     --container-max-width: 1200px;
-    --section-padding: 5rem 2rem;
-    --navbar-height: 70px;
+    --section-padding: 2.5rem 2rem;
+    --navbar-height: 60px;
     
     /* Transitions */
     --transition-fast: 0.3s ease;
@@ -57,17 +57,17 @@ body {
 /* ===== TYPOGRAPHIE ===== */
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: var(--text-primary);
 }
 
 .section-subtitle {
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -199,11 +199,11 @@ body {
 .hero {
     background: var(--primary-gradient);
     color: white;
-    padding: calc(var(--navbar-height) + 4rem) 2rem 4rem;
+    padding: calc(var(--navbar-height) + 2rem) 2rem 2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 80vh;
+    min-height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -240,8 +240,8 @@ body {
 }
 
 .hero-subtitle {
-    font-size: clamp(1.1rem, 3vw, 1.4rem);
-    margin-bottom: 3rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    margin-bottom: 2rem;
     opacity: 0.9;
     max-width: 600px;
     margin-left: auto;
@@ -253,7 +253,7 @@ body {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 /* ===== BOUTONS ===== */
@@ -349,22 +349,22 @@ body {
 /* ===== SECTION PROBLÈME/SOLUTION ===== */
 .problem-solution-section {
     background: var(--bg-light);
-    padding: 3rem 2rem;
+    padding: 2rem;
 }
 
 .problem-solution-condensed {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2rem;
     max-width: 1000px;
-    margin: 0 auto 3rem;
+    margin: 0 auto 2rem;
 }
 
 .problem-side,
 .solution-side {
     background: var(--bg-white);
-    padding: 3rem;
-    border-radius: 20px;
+    padding: 2rem;
+    border-radius: 15px;
     box-shadow: var(--shadow-md);
     position: relative;
 }
@@ -458,18 +458,18 @@ body {
 /* ===== AVANTAGES CONDENSÉS ===== */
 .advantages-condensed {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
 .advantage-compact {
     background: var(--bg-white);
-    padding: 2rem 1.5rem;
-    border-radius: 15px;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
     text-align: center;
     box-shadow: var(--shadow-sm);
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--text-primary);
     transition: all var(--transition-fast);
     border: 2px solid transparent;
@@ -938,12 +938,12 @@ body {
 }
 
 .plan-features li {
-    padding: 0.8rem 0;
+    padding: 0.5rem 0;
     color: var(--text-secondary);
     position: relative;
-    padding-left: 2rem;
-    font-size: 1rem;
-    line-height: 1.5;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 .plan-features li::before {
