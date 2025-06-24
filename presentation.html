@@ -8,16 +8,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .presentation-hero { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1rem 1rem 1.5rem; text-align: center; position: relative; overflow: hidden; }
+        .presentation-hero { 
+            background: linear-gradient(135deg, #667eea, #764ba2); 
+            color: white; 
+            padding: calc(var(--navbar-height) + 1rem) 1rem 1rem; 
+            text-align: center; 
+            position: relative; 
+            overflow: hidden; 
+            margin-bottom: 0;
+        }
         .hero-content { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
-        .profile-image { width: 120px; height: 120px; border-radius: 50%; margin: 3rem auto 0.5rem; border: 2px solid rgba(255,255,255,0.3); object-fit: cover; display: block; }
-        .hero-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.25rem; }
+        .profile-image { 
+            width: 120px; 
+            height: 120px; 
+            border-radius: 50%; 
+            margin: 0 auto 1rem; 
+            border: 2px solid rgba(255,255,255,0.3); 
+            object-fit: cover; 
+            display: block; 
+        }
+        .hero-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; }
         .hero-subtitle { font-size: 0.9rem; opacity: 0.9; margin-bottom: 0; }
-        .story-section { max-width: 800px; margin: -1rem auto 0; padding: 0.5rem 1rem; }
-        .section-title { font-size: 1.3rem; color: #1f2937; margin-bottom: 0.25rem; font-weight: 700; text-align: center; }
-        .lead-text { font-size: 0.9rem; color: #6b7280; margin-bottom: 0.5rem; text-align: center; font-weight: 500; }
-        .story-content h3 { font-size: 0.95rem; color: #1f2937; margin: 0.5rem 0 0.1rem 0; font-weight: 600; }
-        .story-content p { color: #6b7280; margin-bottom: 0.25rem; line-height: 1.3; font-size: 0.8rem; }
+        .story-section { 
+            max-width: 800px; 
+            margin: 1rem auto 0; 
+            padding: 1rem; 
+        }
+        .section-title { font-size: 1.3rem; color: #1f2937; margin-bottom: 0.5rem; font-weight: 700; text-align: center; }
+        .lead-text { font-size: 0.9rem; color: #6b7280; margin-bottom: 1rem; text-align: center; font-weight: 500; }
+        .story-content h3 { font-size: 0.95rem; color: #1f2937; margin: 1rem 0 0.5rem 0; font-weight: 600; }
+        .story-content p { color: #6b7280; margin-bottom: 0.75rem; line-height: 1.3; font-size: 0.8rem; }
         .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
         .value-item { background: white; padding: 1rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.08); transition: transform 0.3s; border: 2px solid transparent; }
         .value-item:hover { transform: translateY(-2px); border-color: #667eea; }
@@ -57,8 +77,9 @@
                     <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
                     <li><a href="fonctionnalites.html" class="nav-link"><i class="fas fa-cogs"></i> <span>Fonctionnalités</span></a></li>
                     <li><a href="tarifs.html" class="nav-link"><i class="fas fa-euro-sign"></i> <span>Tarifs</span></a></li>
-                    <li><a href="presentation.html" class="nav-link active"><i class="fas fa-user"></i> <span>Qui suis-je ?</span></a></li>
                     <li><a href="securite.html" class="nav-link"><i class="fas fa-shield-alt"></i> <span>Sécurité</span></a></li>
+                    <li><a href="presentation.html" class="nav-link active"><i class="fas fa-user"></i> <span>Qui suis-je ?</span></a></li>
+                    <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
                 </ul>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
@@ -123,7 +144,7 @@
         <div class="contact-cta" style="display: none;">
             <h3>Une question ? Envie d'échanger ?</h3>
             <p>N'hésitez pas à me contacter directement pour discuter de votre projet ou simplement échanger sur EmailSortPro</p>
-            <a href="tarifs.html#contact" class="btn-primary">
+            <a href="contact.html" class="btn-primary">
                 <i class="fas fa-envelope"></i> Me contacter
             </a>
         </div>
@@ -146,14 +167,13 @@
                         <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
                         <li><a href="tarifs.html">Tarifs</a></li>
                         <li><a href="securite.html">Sécurité</a></li>
+                        <li><a href="presentation.html">Qui suis-je ?</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <p>Créateur : Vianney Hastings</p>
-                    <div style="color: #667eea; font-weight: 600;">
-                        <i class="fas fa-envelope"></i> contact@emailsortpro.fr
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
