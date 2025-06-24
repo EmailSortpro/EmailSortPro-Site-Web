@@ -59,110 +59,65 @@
         <div class="container">
             <h1 class="section-title">Contactez-nous</h1>
             <p class="section-subtitle">
-                Découvrez comment EmailSortPro peut transformer votre productivité
+                Remplissez le formulaire ci-dessous et nous vous répondrons rapidement
             </p>
 
-            <!-- Types de contact -->
-            <div class="contact-types-grid">
-                <div class="contact-type-card" onclick="selectContactType('demo')">
-                    <div class="contact-type-icon">
-                        <i class="fas fa-play-circle"></i>
+            <!-- Formulaire de contact unique -->
+            <div class="contact-form">
+                <form id="mainContactForm">
+                    <div class="form-group">
+                        <label for="type_message">Type de message</label>
+                        <select id="type_message" name="type_message" onchange="updateMessageContent()" required>
+                            <option value="">-- Sélectionnez --</option>
+                            <option value="support">Support technique</option>
+                            <option value="demo">Demande de présentation</option>
+                            <option value="devis">Demande de devis</option>
+                            <option value="autres">Autres</option>
+                        </select>
                     </div>
-                    <h3>Demander une démo</h3>
-                    <p>Découvrez EmailSortPro en action avec une démonstration personnalisée</p>
-                </div>
 
-                <div class="contact-type-card" onclick="selectContactType('trial')">
-                    <div class="contact-type-icon">
-                        <i class="fas fa-rocket"></i>
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" required>
                     </div>
-                    <h3>Essai gratuit 14 jours</h3>
-                    <p>Testez toutes les fonctionnalités sans engagement</p>
-                </div>
+                    
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-                <div class="contact-type-card" onclick="selectContactType('quote')">
-                    <div class="contact-type-icon">
-                        <i class="fas fa-calculator"></i>
+                    <div class="form-group">
+                        <label for="tel">Téléphone</label>
+                        <input type="tel" id="tel" name="tel">
                     </div>
-                    <h3>Devis personnalisé</h3>
-                    <p>Obtenez un tarif adapté à votre structure</p>
-                </div>
-
-                <div class="contact-type-card" onclick="selectContactType('support')">
-                    <div class="contact-type-icon">
-                        <i class="fas fa-headset"></i>
+                    
+                    <div class="form-group">
+                        <label for="societe">Société</label>
+                        <input type="text" id="societe" name="societe">
                     </div>
-                    <h3>Support technique</h3>
-                    <p>Besoin d'aide ? Notre équipe vous accompagne</p>
-                </div>
+                    
+                    <div class="form-group">
+                        <label for="details">Détails</label>
+                        <textarea id="details" name="details" rows="6" placeholder="Décrivez votre demande..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Envoyer le message
+                    </button>
+                </form>
             </div>
 
-            <!-- Formulaire de contact -->
-            <div id="contactForm" class="contact-form-section" style="display: none;">
-                <h2 id="formTitle" class="form-title">Votre demande</h2>
-                
-                <div class="contact-form">
-                    <form id="mainContactForm">
-                        <input type="hidden" id="contactType" name="contactType" value="">
-                        
-                        <div class="form-group">
-                            <label for="name">Nom complet</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email professionnel</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Entreprise</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        
-                        <div id="phoneGroup" class="form-group" style="display: none;">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="users">Nombre d'utilisateurs</label>
-                            <select id="users" name="users">
-                                <option value="1-5">1-5 utilisateurs</option>
-                                <option value="6-20">6-20 utilisateurs</option>
-                                <option value="21-49">21-49 utilisateurs</option>
-                                <option value="50-100">50-100 utilisateurs</option>
-                                <option value="100+">100+ utilisateurs</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="6"></textarea>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" class="btn-secondary" onclick="resetContactForm()">
-                                <i class="fas fa-arrow-left"></i> Retour
-                            </button>
-                            <button type="submit" class="submit-btn">
-                                <i class="fas fa-paper-plane"></i> <span>Envoyer ma demande</span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Informations de contact -->
-            <div class="contact-info-section">
-                <h3>Contact direct</h3>
-                <div class="contact-methods-grid">
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <h4>Email direct</h4>
-                        <p>vianneyhastings@emailsortpro.fr</p>
-                    </div>
-                </div>
+            <!-- Email de contact -->
+            <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: #f8fafc; border-radius: 8px;">
+                <p style="color: #6b7280; margin-bottom: 0.5rem;">Ou contactez-nous directement :</p>
+                <p style="color: #667eea; font-weight: 600; font-size: 1.1rem;">
+                    <i class="fas fa-envelope"></i> vianneyhastings@emailsortpro.fr
+                </p>
             </div>
         </div>
     </section>
@@ -200,6 +155,32 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function updateMessageContent() {
+            const typeSelect = document.getElementById('type_message');
+            const detailsTextarea = document.getElementById('details');
+            const selectedType = typeSelect.value;
+            
+            const messages = {
+                'support': 'Bonjour,\n\nJ\'ai besoin d\'aide concernant EmailSortPro.\n\nMon problème :\n\n\nMerci pour votre assistance.',
+                'demo': 'Bonjour,\n\nJe souhaiterais bénéficier d\'une présentation d\'EmailSortPro pour comprendre comment cette solution peut améliorer notre gestion des emails.\n\nNotre contexte :\n- Nombre d\'utilisateurs :\n- Environnement email actuel :\n- Besoins spécifiques :\n\nMerci de me recontacter pour organiser une démonstration.',
+                'devis': 'Bonjour,\n\nNous sommes intéressés par EmailSortPro et souhaiterions recevoir un devis personnalisé.\n\nInformations sur notre organisation :\n- Nombre d\'utilisateurs :\n- Type d\'entreprise :\n- Besoins spécifiques :\n- Budget approximatif :\n\nMerci de nous faire parvenir une proposition commerciale.',
+                'autres': 'Bonjour,\n\nJe vous contacte concernant EmailSortPro.\n\n\n\nCordialement.'
+            };
+            
+            if (selectedType && messages[selectedType]) {
+                detailsTextarea.value = messages[selectedType];
+            }
+        }
+
+        // Script existant pour le menu mobile
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            
+            navMenu.classList.toggle('active');
+            mobileBtn.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
