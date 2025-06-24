@@ -48,8 +48,9 @@
                     <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> <span>Accueil</span></a></li>
                     <li><a href="fonctionnalites.html" class="nav-link"><i class="fas fa-cogs"></i> <span>Fonctionnalités</span></a></li>
                     <li><a href="tarifs.html" class="nav-link"><i class="fas fa-euro-sign"></i> <span>Tarifs</span></a></li>
-                    <li><a href="presentation.html" class="nav-link"><i class="fas fa-user"></i> <span>Qui suis-je ?</span></a></li>
                     <li><a href="securite.html" class="nav-link active"><i class="fas fa-shield-alt"></i> <span>Sécurité</span></a></li>
+                    <li><a href="presentation.html" class="nav-link"><i class="fas fa-user"></i> <span>Qui suis-je ?</span></a></li>
+                    <li><a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
                 </ul>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
@@ -128,13 +129,76 @@
                         </li>
                     </ul>
                 </div>
+
+                <div class="security-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-database"></i></div>
+                        <h2 class="card-title">🗄️ Protection Données</h2>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <div><div class="feature-title">Chiffrement AES-256</div><div class="feature-text">Données en transit et au repos sécurisées</div></div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <div><div class="feature-title">Audit complet</div><div class="feature-text">Traçabilité de tous les accès</div></div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <div><div class="feature-title">Sauvegarde 3-2-1</div><div class="feature-text">Redondance géographique garantie</div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="security-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+                        <h2 class="card-title">👤 Contrôle Accès</h2>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <div><div class="feature-title">Authentification MFA</div><div class="feature-text">Multi-facteurs obligatoire entreprise</div></div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <div><div class="feature-title">Gestion des rôles</div><div class="feature-text">Permissions granulaires par utilisateur</div></div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <div><div class="feature-title">Session monitoring</div><div class="feature-text">Surveillance temps réel des sessions</div></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="security-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-network-wired"></i></div>
+                        <h2 class="card-title">🌐 Infrastructure</h2>
+                    </div>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <div><div class="feature-title">Cloud Azure</div><div class="feature-text">Infrastructure Microsoft certifiée</div></div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <div><div class="feature-title">CDN global</div><div class="feature-text">Performance optimisée mondiale</div></div>
+                        </li>
+                        <li class="feature-item">
+                            <i class="fas fa-check feature-icon"></i>
+                            <div><div class="feature-title">Monitoring 24/7</div><div class="feature-text">Surveillance continue automatisée</div></div>
+                        </li>
+                    </ul>
+                </div>
             </div>
 
             <div class="enterprise-box">
                 <h2 style="color: #1f2937; margin-bottom: 1rem; font-size: 1.5rem;">🏢 Intégration Entreprise</h2>
                 <p style="color: #6b7280; margin-bottom: 1rem;">Contact dédié pour faciliter l'intégration dans votre environnement</p>
                 <div class="contact-box">
-                    <i class="fas fa-envelope"></i> contact@emailsortpro.fr
+                    <i class="fas fa-envelope"></i> Contactez-nous via le formulaire contact
                 </div>
                 <p style="color: #6b7280; font-size: 0.9rem;">Réponse sous 4h • Support technique • Configuration personnalisée</p>
             </div>
@@ -163,8 +227,53 @@
                 </div>
             </div>
 
+            <!-- Section détaillée sur le WAF -->
+            <div class="security-section" style="background: var(--bg-light); border-radius: 15px; padding: 2rem; margin: 3rem 0;">
+                <h3 style="color: #1f2937; margin-bottom: 1.5rem; font-size: 1.4rem;">🛡️ Qu'est-ce qu'un WAF (Web Application Firewall) ?</h3>
+                <p style="color: #6b7280; margin-bottom: 1.5rem; line-height: 1.7;">
+                    Un WAF est un système de sécurité qui filtre, surveille et bloque le trafic HTTP/HTTPS entre une application web et Internet. 
+                    Notre WAF protège EmailSortPro contre les attaques courantes comme les injections SQL, le cross-site scripting (XSS), 
+                    et les attaques par déni de service (DDoS).
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #16a34a;">
+                        <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Protection Proactive</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Détection et blocage automatique des menaces avant qu'elles n'atteignent nos serveurs.</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 10px; border-left: 4px solid #667eea;">
+                        <h4 style="color: #1f2937; margin-bottom: 0.5rem;">Machine Learning</h4>
+                        <p style="color: #6b7280; font-size: 0.9rem;">Apprentissage continu des nouveaux patterns d'attaque pour une protection évolutive.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Audit et Conformité -->
+            <div class="security-section" style="background: white; border-radius: 15px; padding: 2rem; margin: 3rem 0; box-shadow: 0 2px 15px rgba(0,0,0,0.08);">
+                <h3 style="color: #1f2937; margin-bottom: 1.5rem; font-size: 1.4rem;">📋 Audit et Conformité</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div>
+                        <h4 style="color: #667eea; margin-bottom: 1rem;">🔍 Audits Réguliers</h4>
+                        <ul style="color: #6b7280; line-height: 1.6;">
+                            <li>• Audit de sécurité trimestriel par un tiers</li>
+                            <li>• Tests de pénétration annuels</li>
+                            <li>• Revue des accès mensuelle</li>
+                            <li>• Analyse de vulnérabilités continue</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #667eea; margin-bottom: 1rem;">📊 Reporting Compliance</h4>
+                        <ul style="color: #6b7280; line-height: 1.6;">
+                            <li>• Rapports de conformité RGPD</li>
+                            <li>• Logs d'audit détaillés</li>
+                            <li>• Métriques de sécurité en temps réel</li>
+                            <li>• Documentation complète des processus</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="tarifs.html#contact" class="btn-primary">
+                <a href="contact.html" class="btn-primary">
                     <i class="fas fa-shield-alt"></i> Questions sécurité ?
                 </a>
             </div>
@@ -187,15 +296,14 @@
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
                         <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="securite.html">Sécurité</a></li>
                         <li><a href="presentation.html">Qui suis-je ?</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <p>Entreprises :</p>
-                    <div style="color: #667eea; font-weight: 600;">
-                        <i class="fas fa-envelope"></i> contact@emailsortpro.fr
-                    </div>
+                    <p>Entreprises : contactez-nous via le formulaire contact</p>
                 </div>
             </div>
             <div class="footer-bottom">
