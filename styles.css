@@ -1963,14 +1963,22 @@ html {
     }
     
     /* Tarifs */
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
     .pricing-card {
         padding: 3rem 2rem;
         margin: 0 1rem;
     }
     
-    .pricing-details {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .pricing-card.featured {
+        transform: none;
+    }
+    
+    .pricing-card.featured:hover {
+        transform: translateY(-5px);
     }
     
     /* AI et compatibilité */
