@@ -114,6 +114,62 @@
             opacity: 0.9;
         }
 
+        /* Process Steps dans le Hero */
+        .hero-steps {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .step-flow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem 0.75rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 100px;
+            transition: all 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .step-icon {
+            font-size: 1.5rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+
+        .step-item span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .step-arrow {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 0.25rem;
+        }
+
         /* Section Problème/Solution - Collée au hero */
         .problem-solution-section {
             background: #f8fafc;
@@ -268,7 +324,7 @@
 
         .steps-simple {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
@@ -459,6 +515,27 @@
             .savings-table td {
                 padding: 0.5rem;
             }
+
+            /* Steps mobile */
+            .step-flow {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .step-arrow {
+                transform: rotate(90deg);
+                margin: 0;
+            }
+
+            .step-item {
+                min-width: 120px;
+                width: 100%;
+                max-width: 200px;
+            }
+
+            .hero-steps {
+                padding: 1.5rem 1rem;
+            }
         }
     </style>
 </head>
@@ -513,6 +590,36 @@
                     Application web qui catégorise automatiquement vos emails et crée des tâches associées<br>
                     Sans installation • 100% RGPD
                 </p>
+                
+                <!-- Process Steps Intégrées -->
+                <div class="hero-steps">
+                    <div class="step-flow">
+                        <div class="step-item">
+                            <div class="step-icon">🌐</div>
+                            <span>Connexion web</span>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step-item">
+                            <div class="step-icon">✅</div>
+                            <span>Autorisation</span>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step-item">
+                            <div class="step-icon">🔍</div>
+                            <span>Scan emails</span>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step-item">
+                            <div class="step-icon">📊</div>
+                            <span>Catégorisation</span>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step-item">
+                            <div class="step-icon">✔️</div>
+                            <span>Création tâches</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -639,25 +746,37 @@
     <!-- Comment ça marche - simplifié -->
     <section class="steps-section">
         <div class="container">
-            <h2 class="section-title">3 étapes simples</h2>
+            <h2 class="section-title">Comment ça fonctionne en détail</h2>
             
             <div class="steps-simple">
                 <div class="step-simple">
                     <span class="step-number">1</span>
-                    <h3>Installation 5min</h3>
-                    <p>Ajout automatique à Outlook</p>
+                    <h3>Connexion web sécurisée</h3>
+                    <p>Accédez à EmailSortPro depuis votre navigateur, sans rien télécharger</p>
                 </div>
                 
                 <div class="step-simple">
                     <span class="step-number">2</span>
-                    <h3>Algorithme apprend</h3>
-                    <p>Analyse vos habitudes emails</p>
+                    <h3>Autorisation Outlook</h3>
+                    <p>Autorisez l'application à scanner vos emails en toute sécurité</p>
                 </div>
                 
                 <div class="step-simple">
                     <span class="step-number">3</span>
-                    <h3>Automatisation</h3>
-                    <p>Gestion totalement autonome</p>
+                    <h3>Lancement du scan intelligent</h3>
+                    <p>Cliquez sur "Scanner" et laissez l'IA analyser vos emails</p>
+                </div>
+
+                <div class="step-simple">
+                    <span class="step-number">4</span>
+                    <h3>Catégorisation automatique</h3>
+                    <p>Visualisez vos emails triés par importance et priorité</p>
+                </div>
+
+                <div class="step-simple">
+                    <span class="step-number">5</span>
+                    <h3>Création de tâches</h3>
+                    <p>Transformez les emails importants en tâches avec liens directs</p>
                 </div>
             </div>
         </div>
