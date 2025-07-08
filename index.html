@@ -36,7 +36,10 @@
                         <i class="fas fa-shield-alt"></i> 
                         <span>Sécurité</span>
                     </a></li>
-
+                    <li><a href="presentation.html" class="nav-link">
+                        <i class="fas fa-user"></i> 
+                        <span>Qui suis-je ?</span>
+                    </a></li>
                     <li><a href="contact.html" class="nav-link">
                         <i class="fas fa-envelope"></i> 
                         <span>Contact</span>
@@ -55,91 +58,189 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Scanner d'emails intelligent avec IA</h1>
+            <h1>Triez vos emails en 2 clics avec l'algorithme</h1>
             <p class="hero-subtitle">
-                Transformez votre productivité avec l'intelligence artificielle. 
-                Économisez jusqu'à 3h par jour en automatisant le tri et la gestion de vos emails.
+                Application web qui catégorise automatiquement vos emails • Sans installation • 100% RGPD
             </p>
             <div class="hero-buttons">
                 <a href="tarifs.html#contact" class="btn-primary">
-                    <i class="fas fa-play"></i> Essai gratuit 14 jours
+                    <i class="fas fa-rocket"></i> Essayer gratuitement
                 </a>
                 <a href="#problem" class="btn-secondary">
-                    <i class="fas fa-info-circle"></i> Découvrir la solution
+                    <i class="fas fa-info-circle"></i> Voir comment ça marche
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Section Problème/Solution -->
+    <!-- Section Problème/Solution améliorée -->
     <section id="problem" class="problem-solution-section">
         <div class="container">
-            <div class="problem-solution-condensed">
-                <div class="problem-side">
-                    <h2>😰 Le problème</h2>
-                    <ul>
-                        <li>Submergé par des centaines d'emails</li>
-                        <li>2-4h perdues chaque jour</li>
-                        <li>Messages importants manqués</li>
-                        <li>Emails oubliés dans les spams</li>
-                        <li>Stress et productivité en chute</li>
+            <div class="problem-solution-grid">
+                <div class="problem-card">
+                    <div class="card-header problem">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h2>Le Problème</h2>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat-number">2-3h</div>
+                        <div class="stat-label">perdues chaque jour dans les emails</div>
+                    </div>
+                    <ul class="problem-list">
+                        <li><i class="fas fa-times"></i> 200+ emails non triés par jour</li>
+                        <li><i class="fas fa-times"></i> Messages importants noyés</li>
+                        <li><i class="fas fa-times"></i> Tâches oubliées ou en retard</li>
+                        <li><i class="fas fa-times"></i> Clients mécontents (réponses tardives)</li>
+                        <li><i class="fas fa-times"></i> Stress constant et surcharge mentale</li>
                     </ul>
                 </div>
                 
-                <div class="solution-side">
-                    <h2>🎯 La solution EmailSortPro</h2>
-                    <ul>
-                        <li><strong>IA analyse</strong> emails instantanément</li>
-                        <li><strong>Tri automatique</strong> intelligent</li>
-                        <li><strong>Priorisation smart</strong> des urgences</li>
-                        <li><strong>Tâches créées</strong> automatiquement</li>
+                <div class="solution-card">
+                    <div class="card-header solution">
+                        <i class="fas fa-check-circle"></i>
+                        <h2>La Solution EmailSortPro</h2>
+                    </div>
+                    <div class="card-stats">
+                        <div class="stat-number">2 clics</div>
+                        <div class="stat-label">pour tout organiser avec l'algorithme</div>
+                    </div>
+                    <ul class="solution-list">
+                        <li><i class="fas fa-check"></i> <strong>Algorithme trie</strong> par catégories personnalisées</li>
+                        <li><i class="fas fa-check"></i> <strong>Détecte</strong> les urgences automatiquement</li>
+                        <li><i class="fas fa-check"></i> <strong>Crée des tâches</strong> depuis vos emails</li>
+                        <li><i class="fas fa-check"></i> <strong>Web app</strong> : pas d'installation</li>
+                        <li><i class="fas fa-check"></i> <strong>100% RGPD</strong> : données chez Microsoft</li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="result-highlight">
-                <h3>🚀 Résultat : Économisez 3h par jour</h3>
-                <p>Boîte email organisée automatiquement • Aucun message important manqué</p>
-            </div>
         </div>
     </section>
 
-    <!-- Avantages condensés -->
-    <section class="section">
+    <!-- Calculateur de ROI -->
+    <section class="roi-section">
         <div class="container">
-            <h2 class="section-title">Pourquoi EmailSortPro ?</h2>
+            <h2 class="section-title">Combien de temps allez-vous gagner ?</h2>
+            <p class="section-subtitle">Sélectionnez votre profil pour voir votre gain de temps personnalisé</p>
             
-            <div class="advantages-condensed">
-                <div class="advantage-compact">⚡ <strong>3h économisées/jour</strong></div>
-                <div class="advantage-compact">🧠 <strong>IA évolutive</strong></div>
-                <div class="advantage-compact">🛡️ <strong>Sécurisé RGPD</strong></div>
-                <div class="advantage-compact">🚀 <strong>Installation 5min</strong></div>
+            <div class="roi-calculator">
+                <div class="persona-grid">
+                    <div class="persona-card" onclick="calculateROI('manager')" data-persona="manager">
+                        <div class="persona-icon">👔</div>
+                        <h3>Manager / Dirigeant</h3>
+                        <div class="persona-details">
+                            <p><strong>5h de réunions/jour</strong></p>
+                            <p>150-200 emails/jour</p>
+                            <p>Multiples projets</p>
+                        </div>
+                    </div>
+                    
+                    <div class="persona-card active" onclick="calculateROI('commercial')" data-persona="commercial">
+                        <div class="persona-icon">💼</div>
+                        <h3>Commercial / Business</h3>
+                        <div class="persona-details">
+                            <p><strong>3h terrain/jour</strong></p>
+                            <p>80-120 emails/jour</p>
+                            <p>Suivi clients intense</p>
+                        </div>
+                    </div>
+                    
+                    <div class="persona-card" onclick="calculateROI('support')" data-persona="support">
+                        <div class="persona-icon">🎧</div>
+                        <h3>Support / Opérations</h3>
+                        <div class="persona-details">
+                            <p><strong>6h tickets/jour</strong></p>
+                            <p>200-300 emails/jour</p>
+                            <p>Réponses urgentes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="roi-result" id="roiResult">
+                    <div class="roi-result-header">
+                        <h3>Votre gain de temps estimé</h3>
+                        <p id="roiDescription">Pour un commercial avec 80-120 emails/jour :</p>
+                    </div>
+                    <div class="roi-stats">
+                        <div class="roi-stat">
+                            <span class="roi-icon">⏰</span>
+                            <span class="roi-number" id="dailyTime">1h30</span>
+                            <span class="roi-label">par jour</span>
+                        </div>
+                        <div class="roi-stat">
+                            <span class="roi-icon">📅</span>
+                            <span class="roi-number" id="weeklyTime">7h30</span>
+                            <span class="roi-label">par semaine</span>
+                        </div>
+                        <div class="roi-stat">
+                            <span class="roi-icon">📈</span>
+                            <span class="roi-number" id="monthlyTime">30h</span>
+                            <span class="roi-label">par mois</span>
+                        </div>
+                    </div>
+                    <div class="roi-equivalent">
+                        <p><strong>Équivalent :</strong> <span id="roiEquivalent">Presque 1 semaine de travail récupérée chaque mois !</span></p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Comment ça marche - simplifié -->
+    <!-- Comment ça marche - ultra simple -->
     <section class="section steps-section">
         <div class="container">
-            <h2 class="section-title">3 étapes simples</h2>
+            <h2 class="section-title">Comment ça marche ?</h2>
             
-            <div class="steps-simple">
-                <div class="step-simple">
-                    <span class="step-number">1</span>
-                    <h3>Installation 5min</h3>
-                    <p>Ajout automatique à Outlook</p>
+            <div class="process-flow">
+                <div class="process-step">
+                    <div class="step-icon">🔗</div>
+                    <h3>1. Connectez Outlook</h3>
+                    <p>1 clic, connexion sécurisée</p>
                 </div>
-                
-                <div class="step-simple">
-                    <span class="step-number">2</span>
-                    <h3>IA apprend</h3>
-                    <p>Analyse vos habitudes emails</p>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-icon">🤖</div>
+                    <h3>2. L'algorithme analyse</h3>
+                    <p>Comprend vos emails instantanément</p>
                 </div>
-                
-                <div class="step-simple">
-                    <span class="step-number">3</span>
-                    <h3>Automatisation</h3>
-                    <p>Gestion totalement autonome</p>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-icon">📂</div>
+                    <h3>3. Tri automatique</h3>
+                    <p>Catégories personnalisées créées</p>
+                </div>
+                <div class="process-arrow">→</div>
+                <div class="process-step">
+                    <div class="step-icon">✅</div>
+                    <h3>4. Gain de temps</h3>
+                    <p>Productivité x2 immédiatement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avantages clés -->
+    <section class="section">
+        <div class="container">
+            <div class="advantages-grid">
+                <div class="advantage-item">
+                    <div class="advantage-icon">⚡</div>
+                    <h3>Gain immédiat</h3>
+                    <p>ROI dès le 1er jour</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🔒</div>
+                    <h3>100% sécurisé</h3>
+                    <p>RGPD • Données chez Microsoft</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🧠</div>
+                    <h3>Algorithme évolutif</h3>
+                    <p>S'améliore avec l'usage</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">🌐</div>
+                    <h3>Web app</h3>
+                    <p>Sans installation • Partout</p>
                 </div>
             </div>
         </div>
@@ -148,16 +249,16 @@
     <!-- Call to Action Final -->
     <section class="section cta-final">
         <div class="container">
-            <h2>Prêt à transformer votre productivité ?</h2>
+            <h2>Prêt à gagner 2h par jour ?</h2>
             <p>
-                Rejoignez des milliers de professionnels qui ont repris le contrôle de leur boîte email
+                Essai gratuit 14 jours • Sans carte bancaire • Installation en 2 minutes
             </p>
             <div class="hero-buttons">
                 <a href="tarifs.html#contact" class="btn-primary">
-                    <i class="fas fa-rocket"></i> Commencer l'essai gratuit
+                    <i class="fas fa-rocket"></i> Démarrer l'essai gratuit
                 </a>
-                <a href="tarifs.html#contact" class="btn-secondary">
-                    <i class="fas fa-comments"></i> Demander une démo
+                <a href="fonctionnalites.html" class="btn-secondary">
+                    <i class="fas fa-play-circle"></i> Voir la démo
                 </a>
             </div>
         </div>
@@ -197,5 +298,341 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Calculateur de ROI
+        function calculateROI(persona) {
+            // Retirer la classe active de toutes les cartes
+            document.querySelectorAll('.persona-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Ajouter la classe active à la carte cliquée
+            const selectedCard = document.querySelector(`[data-persona="${persona}"]`);
+            if (selectedCard) {
+                selectedCard.classList.add('active');
+            }
+            
+            // Données de ROI par persona
+            const roiData = {
+                manager: {
+                    description: "Pour un manager avec 150-200 emails/jour :",
+                    daily: "2h",
+                    weekly: "10h",
+                    monthly: "40h",
+                    equivalent: "Une semaine complète de travail récupérée chaque mois !"
+                },
+                commercial: {
+                    description: "Pour un commercial avec 80-120 emails/jour :",
+                    daily: "1h30",
+                    weekly: "7h30",
+                    monthly: "30h",
+                    equivalent: "Presque 1 semaine de travail récupérée chaque mois !"
+                },
+                support: {
+                    description: "Pour un agent support avec 200-300 emails/jour :",
+                    daily: "2h30",
+                    weekly: "12h30",
+                    monthly: "50h",
+                    equivalent: "Plus d'une semaine de travail récupérée chaque mois !"
+                }
+            };
+            
+            const data = roiData[persona];
+            
+            // Mettre à jour l'affichage
+            document.getElementById('roiDescription').textContent = data.description;
+            document.getElementById('dailyTime').textContent = data.daily;
+            document.getElementById('weeklyTime').textContent = data.weekly;
+            document.getElementById('monthlyTime').textContent = data.monthly;
+            document.getElementById('roiEquivalent').textContent = data.equivalent;
+            
+            // Animation de mise à jour
+            const resultDiv = document.getElementById('roiResult');
+            resultDiv.style.animation = 'none';
+            setTimeout(() => {
+                resultDiv.style.animation = 'fadeIn 0.5s ease-in-out';
+            }, 10);
+        }
+    </script>
+    
+    <style>
+        /* Styles spécifiques pour la page améliorée */
+        .problem-solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .problem-card,
+        .solution-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-header.problem {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        .card-header.solution {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .card-header h2 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .card-stats {
+            padding: 2rem;
+            text-align: center;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+
+        .problem-list,
+        .solution-list {
+            list-style: none;
+            padding: 2rem;
+            margin: 0;
+        }
+
+        .problem-list li,
+        .solution-list li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.05rem;
+        }
+
+        .problem-list i {
+            color: #ef4444;
+        }
+
+        .solution-list i {
+            color: #10b981;
+        }
+
+        /* Section ROI */
+        .roi-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 3rem;
+            font-size: 1.125rem;
+        }
+
+        .persona-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .persona-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .persona-card:hover {
+            border-color: #4F46E5;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .persona-card.active {
+            border-color: #4F46E5;
+            background: #f0f4ff;
+        }
+
+        .persona-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .persona-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .persona-details p {
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        .roi-result {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .roi-result-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .roi-result-header h3 {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .roi-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .roi-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+        }
+
+        .roi-icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .roi-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #4F46E5;
+            margin: 0.5rem 0;
+        }
+
+        .roi-label {
+            font-size: 0.95rem;
+            color: #64748b;
+        }
+
+        .roi-equivalent {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f0f4ff;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+
+        .roi-equivalent p {
+            margin: 0;
+            font-size: 1.125rem;
+            color: #1a1a1a;
+        }
+
+        /* Process flow */
+        .process-flow {
+            display: grid;
+            grid-template-columns: auto 1fr auto 1fr auto 1fr auto;
+            align-items: center;
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .process-step p {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        .process-arrow {
+            font-size: 2rem;
+            color: #cbd5e1;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .problem-solution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roi-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .process-flow {
+                grid-template-columns: 1fr;
+            }
+
+            .process-arrow {
+                transform: rotate(90deg);
+                margin: 1rem 0;
+            }
+        }
+    </style>
 </body>
 </html>
