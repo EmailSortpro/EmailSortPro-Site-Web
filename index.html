@@ -3,930 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EmailSortProAI - Gagnez 2h par jour sur vos emails</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Triez vos emails en 2 clics. Solution web 100% RGPD, sans installation. Gagnez jusqu'à 2h/jour avec l'IA.">
-    <meta name="keywords" content="email, productivité, RGPD, outlook, gmail, tri automatique, IA, sans installation">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📧</text></svg>">
-    
-    <!-- MSAL Library -->
-    <script src="https://alcdn.msauth.net/browser/2.38.0/js/msal-browser.min.js"></script>
-    
-    <!-- Font Awesome -->
+    <title>EmailSortPro - Scanner d'Emails Intelligent avec IA</title>
+    <meta name="description" content="Organisez vos emails Outlook intelligemment avec l'IA. Catégorisation automatique et organisation par domaine.">
+    <meta name="keywords" content="email, outlook, microsoft, gestion, ia, productivité, organisation">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Configuration reste identique -->
-    <script>
-        console.log('[INDEX] 🚀 Loading configuration...');
-        window.NETLIFY_CLIENT_ID = '8fec3ae1-78e3-4b5d-a425-00b8f20516f7';
-        
-        // Configuration complète identique à l'original
-        (function() {
-            const hostname = window.location.hostname;
-            const isNetlify = hostname.includes('netlify.app');
-            const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1';
-            
-            function getClientIdForEnvironment() {
-                if (isNetlify && window.NETLIFY_CLIENT_ID) {
-                    return window.NETLIFY_CLIENT_ID;
-                }
-                
-                try {
-                    const savedClientId = localStorage.getItem('emailsortpro_client_id');
-                    if (savedClientId && savedClientId !== 'VOTRE_CLIENT_ID_ICI') {
-                        return savedClientId;
-                    }
-                } catch (e) {
-                    console.warn('[INDEX] Cannot access localStorage:', e);
-                }
-                
-                return '8fec3ae1-78e3-4b5d-a425-00b8f20516f7';
-            }
-            
-            const clientId = getClientIdForEnvironment();
-            
-            window.AppConfig = {
-                msal: {
-                    clientId: clientId,
-                    authority: 'https://login.microsoftonline.com/common',
-                    redirectUri: 'https://emailsortpro.netlify.app/auth-callback.html',
-                    postLogoutRedirectUri: 'https://emailsortpro.netlify.app/',
-                    cache: {
-                        cacheLocation: 'localStorage',
-                        storeAuthStateInCookie: true
-                    }
-                },
-                scopes: {
-                    login: [
-                        'https://graph.microsoft.com/User.Read',
-                        'https://graph.microsoft.com/Mail.Read',
-                        'https://graph.microsoft.com/Mail.ReadWrite'
-                    ]
-                },
-                app: {
-                    name: 'EmailSortProAI',
-                    version: '3.0.1',
-                    debug: isLocalhost,
-                    environment: isNetlify ? 'netlify' : 'localhost'
-                }
-            };
-        })();
-    </script>
-
-    <!-- Styles optimisés -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f8fafc;
-            color: #1f2937;
-            line-height: 1.6;
-        }
-
-        /* Page de login optimisée et condensée */
-        .login-page {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #4F46E5 0%, #6366F1 50%, #818CF8 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .login-container {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
-            border-radius: 16px;
-            padding: 32px;
-            max-width: 500px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Hero Section */
-        .hero-section {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .hero-logo {
-            width: 64px;
-            height: 64px;
-            background: linear-gradient(135deg, #4F46E5, #6366F1);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 32px;
-            color: white;
-            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.3);
-        }
-
-        .hero-title {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #4F46E5, #6366F1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 0;
-        }
-
-        /* Time Savings Calculator */
-        .time-savings {
-            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-            border: 2px solid #3b82f6;
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 32px;
-        }
-
-        .time-savings-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1e40af;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        .savings-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .savings-item {
-            background: white;
-            padding: 16px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #cbd5e1;
-            transition: all 0.2s;
-        }
-
-        .savings-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .emails-count {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #3b82f6;
-            display: block;
-        }
-
-        .emails-label {
-            font-size: 0.875rem;
-            color: #64748b;
-            margin-bottom: 8px;
-        }
-
-        .time-saved {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #10b981;
-            display: block;
-            margin-top: 8px;
-        }
-
-        .time-label {
-            font-size: 0.75rem;
-            color: #6b7280;
-        }
-
-        /* Key Features */
-        .key-features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .feature-card {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid #e2e8f0;
-        }
-
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #4F46E5, #6366F1);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
-            font-size: 24px;
-            color: white;
-        }
-
-        .feature-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 4px;
-        }
-
-        .feature-description {
-            font-size: 0.875rem;
-            color: #64748b;
-            line-height: 1.4;
-        }
-
-        /* How it works - Simplified */
-        .how-it-works {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            margin-bottom: 24px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .how-title {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 16px;
-            text-align: center;
-        }
-
-        .steps-simple {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .step-simple {
-            flex: 1;
-            text-align: center;
-            padding: 12px;
-            background: #f1f5f9;
-            border-radius: 8px;
-            position: relative;
-        }
-
-        .step-simple:not(:last-child)::after {
-            content: '→';
-            position: absolute;
-            right: -16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94a3b8;
-            font-size: 20px;
-        }
-
-        .step-number-simple {
-            background: #4F46E5;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-            margin: 0 auto 8px;
-        }
-
-        .step-text {
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: #1f2937;
-        }
-
-        /* Login Buttons */
-        .login-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .login-button {
-            width: 100%;
-            padding: 16px 24px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .login-button.microsoft {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-            box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
-        }
-
-        .login-button.microsoft:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-        }
-
-        .login-button.google {
-            background: #ea4335;
-            color: white;
-            box-shadow: 0 4px 16px rgba(234, 67, 53, 0.3);
-        }
-
-        .login-button.google:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(234, 67, 53, 0.4);
-        }
-
-        /* RGPD Section */
-        .rgpd-section {
-            background: linear-gradient(135deg, #dcfce7, #bbf7d0);
-            border: 2px solid #10b981;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-
-        .rgpd-title {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #047857;
-            margin-bottom: 8px;
-        }
-
-        .rgpd-points {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
-
-        .rgpd-point {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.875rem;
-            color: #059669;
-            font-weight: 600;
-        }
-
-        /* Footer */
-        .login-footer {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 12px;
-        }
-
-        .footer-link {
-            color: #6366F1;
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .footer-link:hover {
-            text-decoration: underline;
-        }
-
-        .footer-copyright {
-            font-size: 0.75rem;
-            color: #94a3b8;
-        }
-
-        /* App styles */
-        .app-header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 60px;
-            background: linear-gradient(135deg, #4F46E5, #6366F1);
-            color: white;
-            z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            display: none;
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 24px;
-            height: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* Navigation */
-        .app-nav {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            height: 56px;
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
-            z-index: 999;
-            display: none;
-        }
-
-        #mainNav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            padding: 0 24px;
-            height: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .nav-item {
-            background: transparent;
-            border: none;
-            padding: 8px 16px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            color: #64748b;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.15s;
-        }
-
-        .nav-item:hover {
-            background: #f1f5f9;
-            color: #475569;
-        }
-
-        .nav-item.active {
-            background: #E0E7FF;
-            color: #3730A3;
-            font-weight: 600;
-        }
-
-        /* App main */
-        .app-main {
-            margin-top: 116px;
-            min-height: calc(100vh - 116px);
-            padding: 0;
-        }
-
-        #pageContent {
-            display: none;
-            opacity: 0;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Active state */
-        body.app-active #loginPage {
-            display: none !important;
-        }
-
-        body.app-active .app-header,
-        body.app-active .app-nav {
-            display: block !important;
-        }
-
-        body.app-active #pageContent {
-            display: block !important;
-            opacity: 1 !important;
-        }
-
-        /* Loading overlay */
-        .login-loading-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(255, 255, 255, 0.95);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .login-loading-overlay.active {
-            display: flex;
-        }
-
-        .login-spinner {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(79, 70, 229, 0.2);
-            border-top-color: #4F46E5;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .login-container {
-                padding: 24px 20px;
-            }
-
-            .hero-title {
-                font-size: 1.75rem;
-            }
-
-            .hero-logo {
-                width: 56px;
-                height: 56px;
-                font-size: 28px;
-            }
-
-            /* Affichage en colonne sur mobile */
-            div[style*="grid-template-columns: 1fr 1fr"] {
-                grid-template-columns: 1fr !important;
-            }
-
-            div[style*="grid-template-columns: repeat(3, 1fr)"] {
-                grid-template-columns: 1fr !important;
-                gap: 8px !important;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 8px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="app">
-        <!-- Header Application (caché initialement) -->
-        <header class="app-header">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-envelope-open-text"></i>
-                    <span>EmailSortProAI</span>
-                </div>
-                <div id="authStatus" class="auth-status">
-                    <span class="text-muted">Initialisation...</span>
-                </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-envelope-open-text"></i>
+                <span>EmailSortPro</span>
             </div>
-        </header>
-
-        <!-- Navigation (cachée initialement) -->
-        <nav class="app-nav">
-            <div id="mainNav">
-                <button class="nav-item active" data-page="dashboard">
-                    <i class="fas fa-th-large"></i>
-                    <span>Dashboard</span>
-                </button>
-                <button class="nav-item" data-page="scanner">
-                    <i class="fas fa-search"></i>
-                    <span>Scanner</span>
-                </button>
-                <button class="nav-item" data-page="emails">
-                    <i class="fas fa-inbox"></i>
-                    <span>Emails</span>
-                </button>
-                <button class="nav-item" data-page="tasks">
-                    <i class="fas fa-tasks"></i>
-                    <span>Tâches</span>
-                </button>
-                <button class="nav-item" data-page="ranger">
-                    <i class="fas fa-folder-tree"></i>
-                    <span>Ranger</span>
-                </button>
-                <button class="nav-item" data-page="settings">
-                    <i class="fas fa-cog"></i>
-                    <span>Paramètres</span>
-                </button>
-            </div>
-        </nav>
-
-        <!-- Contenu Principal -->
-        <main class="app-main">
-            <!-- Page de Connexion optimisée -->
-            <div id="loginPage" class="login-page">
-                <div class="login-container">
-                    <!-- Hero Section -->
-                    <div class="hero-section">
-                        <div class="hero-logo">
-                            <i class="fas fa-envelope-open-text"></i>
-                        </div>
-                        <h1 class="hero-title">EmailSortProAI</h1>
-                    </div>
-
-                    <!-- Problem/Solution Section -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px;">
-                        <div style="background: #fef2f2; border: 2px solid #ef4444; border-radius: 12px; padding: 20px;">
-                            <h3 style="color: #dc2626; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                                😰 Le problème
-                            </h3>
-                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; color: #7f1d1d; line-height: 1.8;">
-                                <li>• Submergé par des centaines d'emails</li>
-                                <li>• 2-4h perdues chaque jour</li>
-                                <li>• Messages importants manqués</li>
-                                <li>• Emails oubliés dans les spams</li>
-                                <li>• Stress et productivité en chute</li>
-                            </ul>
-                        </div>
-                        <div style="background: #f0fdf4; border: 2px solid #10b981; border-radius: 12px; padding: 20px;">
-                            <h3 style="color: #059669; font-size: 1.25rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-                                🎯 La solution EmailSortPro
-                            </h3>
-                            <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.875rem; color: #14532d; line-height: 1.8;">
-                                <li>• <strong>IA analyse</strong> emails instantanément</li>
-                                <li>• <strong>Tri automatique</strong> intelligent</li>
-                                <li>• <strong>Priorisation smart</strong> des urgences</li>
-                                <li>• <strong>Tâches créées</strong> automatiquement</li>
-                                <li>• <strong>Gain de 2h+</strong> par jour</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Time Savings Calculator Condensed -->
-                    <div style="background: #eff6ff; border-radius: 12px; padding: 16px; margin-bottom: 20px; text-align: center;">
-                        <p style="font-size: 1.125rem; font-weight: 700; color: #1e40af; margin: 0;">
-                            ⏱️ Temps économisé : 30min (50 emails) → 2h+ (200 emails) par jour
-                        </p>
-                    </div>
-
-                    <!-- Key Features Condensed -->
-                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px;">
-                        <div style="text-align: center; padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
-                            <div style="font-size: 24px; margin-bottom: 4px;">🖱️</div>
-                            <div style="font-size: 0.875rem; font-weight: 600; color: #1f2937;">2 clics</div>
-                            <div style="font-size: 0.75rem; color: #64748b;">Vue instantanée</div>
-                        </div>
-                        <div style="text-align: center; padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
-                            <div style="font-size: 24px; margin-bottom: 4px;">🏷️</div>
-                            <div style="font-size: 0.875rem; font-weight: 600; color: #1f2937;">Tri par IA</div>
-                            <div style="font-size: 0.75rem; color: #64748b;">Catégories auto</div>
-                        </div>
-                        <div style="text-align: center; padding: 12px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0;">
-                            <div style="font-size: 24px; margin-bottom: 4px;">✅</div>
-                            <div style="font-size: 0.875rem; font-weight: 600; color: #1f2937;">Tâches auto</div>
-                            <div style="font-size: 0.75rem; color: #64748b;">Actions créées</div>
-                        </div>
-                    </div>
-
-                    <!-- How it works - Ultra Simple -->
-                    <div style="text-align: center; margin-bottom: 20px; padding: 12px; background: #f8fafc; border-radius: 8px;">
-                        <div style="font-weight: 600; color: #374151; margin-bottom: 8px;">Comment ça marche ?</div>
-                        <div style="display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 0.875rem; color: #6b7280;">
-                            <span>1️⃣ Connexion</span>
-                            <span>→</span>
-                            <span>2️⃣ Analyse IA</span>
-                            <span>→</span>
-                            <span>3️⃣ Tri auto</span>
-                            <span>→</span>
-                            <span>✅ Gain de temps</span>
-                        </div>
-                    </div>
-
-                    <!-- RGPD Section Compact -->
-                    <div style="background: #dcfce7; border: 1px solid #10b981; border-radius: 8px; padding: 12px; text-align: center; margin-bottom: 20px;">
-                        <div style="font-weight: 700; color: #047857; margin-bottom: 4px;">
-                            🔒 100% RGPD • Sans installation • Aucun stockage d'emails
-                        </div>
-                        <div style="font-size: 0.875rem; color: #059669;">
-                            Application web sécurisée - Vos données restent chez Microsoft/Google
-                        </div>
-                    </div>
-
-                    <!-- Login Buttons -->
-                    <div class="login-buttons">
-                        <button id="loginBtn" class="login-button microsoft">
-                            <i class="fab fa-microsoft"></i>
-                            Commencer avec Outlook
-                        </button>
-                        <button id="googleLoginBtn" class="login-button google">
-                            <i class="fab fa-google"></i>
-                            Commencer avec Gmail
-                        </button>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="login-footer">
-                        <div class="footer-links">
-                            <a href="/privacy-policy.html" class="footer-link">
-                                Politique de confidentialité
-                            </a>
-                            <a href="/terms.html" class="footer-link">
-                                Conditions d'utilisation
-                            </a>
-                            <a href="mailto:support@emailsortpro.fr" class="footer-link">
-                                Support
-                            </a>
-                        </div>
-                        <div class="footer-copyright">
-                            © 2024 EmailSortProAI - Développé par Vianney Hastings
-                        </div>
-                    </div>
-                </div>
+            
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link active">
+                        <i class="fas fa-home"></i> 
+                        <span>Accueil</span>
+                    </a></li>
+                    <li><a href="fonctionnalites.html" class="nav-link">
+                        <i class="fas fa-cogs"></i> 
+                        <span>Fonctionnalités</span>
+                    </a></li>
+                    <li><a href="tarifs.html" class="nav-link">
+                        <i class="fas fa-euro-sign"></i> 
+                        <span>Tarifs</span>
+                    </a></li>
+                    <li><a href="securite.html" class="nav-link">
+                        <i class="fas fa-shield-alt"></i> 
+                        <span>Sécurité</span>
+                    </a></li>
+                    <li><a href="presentation.html" class="nav-link">
+                        <i class="fas fa-user"></i> 
+                        <span>Qui suis-je ?</span>
+                    </a></li>
+                    <li><a href="contact.html" class="nav-link">
+                        <i class="fas fa-envelope"></i> 
+                        <span>Contact</span>
+                    </a></li>
+                </ul>
             </div>
 
-            <!-- Contenu Dynamique des Pages -->
-            <div id="pageContent">
-                <!-- Chargé dynamiquement -->
-            </div>
-        </main>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
 
-        <!-- Loading Overlay -->
-        <div id="loadingOverlay" class="login-loading-overlay">
-            <div class="login-spinner"></div>
-            <div class="login-loading-text">
-                <div>Connexion en cours...</div>
-                <div style="font-size: 14px; opacity: 0.8; margin-top: 8px;">Authentification sécurisée</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Scanner d'emails intelligent avec IA</h1>
+            <p class="hero-subtitle">
+                Transformez votre productivité avec l'intelligence artificielle. 
+                Économisez jusqu'à 3h par jour en automatisant le tri et la gestion de vos emails.
+            </p>
+            <div class="hero-buttons">
+                <a href="tarifs.html#contact" class="btn-primary">
+                    <i class="fas fa-play"></i> Essai gratuit 14 jours
+                </a>
+                <a href="#problem" class="btn-secondary">
+                    <i class="fas fa-info-circle"></i> Découvrir la solution
+                </a>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Scripts (identiques à l'original) -->
-    <script src="config-supabase.js"></script>
-    <script src="UIManager.js"></script>
-    <script src="AuthService.js"></script>
-    <script src="GoogleAuthService.js"></script>
-    <script src="LicenceService.js"></script>
-    <script src="MailService.js"></script>
-    <script src="CategoryManager.js"></script>
-    <script src="TaskManager.js"></script>
-    <script src="EmailScanner.js"></script>
-    <script src="EmailDeduplicationManager.js"></script>
-    <script src="AITaskAnalyzer.js"></script>
-    <script src="analytics.js"></script>
-    <script src="dashboard.js"></script>
-    <script src="PageManager.js"></script>
-    <script src="PageManagerGmail.js"></script>
-    <script src="PageManagerOutlook.js"></script>
-    <script src="startscan.js"></script>
-    <script src="DomainOrganizer.js"></script>
-    <script src="CategoriesPage.js"></script>
-    <script src="Onboarding.js"></script>
-    <script src="app.js"></script>
-
-    <!-- Scripts de gestion des événements (simplifiés, identiques à l'original) -->
-    <script>
-        // Variables d'état
-        let authCheckInProgress = false;
-        let appAlreadyShown = false;
-
-        // Fonction pour afficher l'application
-        window.showApp = function() {
-            if (appAlreadyShown) return;
-            
-            document.body.classList.remove('login-mode');
-            document.body.classList.add('app-active');
-            
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            if (loadingOverlay) {
-                loadingOverlay.classList.remove('active');
-            }
-            
-            appAlreadyShown = true;
-        };
-
-        // Gestion de la connexion
-        document.addEventListener('DOMContentLoaded', function() {
-            // Bouton Microsoft
-            const loginBtn = document.getElementById('loginBtn');
-            if (loginBtn) {
-                loginBtn.addEventListener('click', async function() {
-                    if (authCheckInProgress) return;
-                    
-                    authCheckInProgress = true;
-                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connexion...';
-                    this.disabled = true;
-                    
-                    const loadingOverlay = document.getElementById('loadingOverlay');
-                    if (loadingOverlay) {
-                        loadingOverlay.classList.add('active');
-                    }
-                    
-                    try {
-                        if (window.app && window.app.login) {
-                            await window.app.login();
-                            window.showApp();
-                        }
-                    } catch (error) {
-                        console.error('Login error:', error);
-                        this.innerHTML = '<i class="fab fa-microsoft"></i> Commencer avec Outlook';
-                        this.disabled = false;
-                        if (loadingOverlay) {
-                            loadingOverlay.classList.remove('active');
-                        }
-                    }
-                    
-                    authCheckInProgress = false;
-                });
-            }
-
-            // Bouton Google
-            const googleLoginBtn = document.getElementById('googleLoginBtn');
-            if (googleLoginBtn) {
-                googleLoginBtn.addEventListener('click', async function() {
-                    if (authCheckInProgress) return;
-                    
-                    authCheckInProgress = true;
-                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connexion...';
-                    this.disabled = true;
-                    
-                    const loadingOverlay = document.getElementById('loadingOverlay');
-                    if (loadingOverlay) {
-                        loadingOverlay.classList.add('active');
-                    }
-                    
-                    try {
-                        if (window.googleAuthService) {
-                            await window.googleAuthService.initialize();
-                            await window.googleAuthService.login();
-                        }
-                    } catch (error) {
-                        console.error('Google login error:', error);
-                        this.innerHTML = '<i class="fab fa-google"></i> Commencer avec Gmail';
-                        this.disabled = false;
-                        if (loadingOverlay) {
-                            loadingOverlay.classList.remove('active');
-                        }
-                    }
-                    
-                    authCheckInProgress = false;
-                });
-            }
-        });
-
-        // Fonction de déconnexion
-        window.handleLogout = async function() {
-            try {
-                if (window.authService && window.authService.isAuthenticated()) {
-                    await window.authService.logout();
-                } else if (window.googleAuthService && window.googleAuthService.isAuthenticated()) {
-                    await window.googleAuthService.logout();
-                }
+    <!-- Section Problème/Solution -->
+    <section id="problem" class="problem-solution-section">
+        <div class="container">
+            <div class="problem-solution-condensed">
+                <div class="problem-side">
+                    <h2>😰 Le problème</h2>
+                    <ul>
+                        <li>Submergé par des centaines d'emails</li>
+                        <li>2-4h perdues chaque jour</li>
+                        <li>Messages importants manqués</li>
+                        <li>Emails oubliés dans les spams</li>
+                        <li>Stress et productivité en chute</li>
+                    </ul>
+                </div>
                 
-                document.body.classList.remove('app-active');
-                document.body.classList.add('login-mode');
-                appAlreadyShown = false;
-                
-                window.location.reload();
-            } catch (error) {
-                console.error('Logout error:', error);
-                window.location.reload();
-            }
-        };
+                <div class="solution-side">
+                    <h2>🎯 La solution EmailSortPro</h2>
+                    <ul>
+                        <li><strong>IA analyse</strong> emails instantanément</li>
+                        <li><strong>Tri automatique</strong> intelligent</li>
+                        <li><strong>Priorisation smart</strong> des urgences</li>
+                        <li><strong>Tâches créées</strong> automatiquement</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="result-highlight">
+                <h3>🚀 Résultat : Économisez 3h par jour</h3>
+                <p>Boîte email organisée automatiquement • Aucun message important manqué</p>
+            </div>
+        </div>
+    </section>
 
-        // Mise à jour du statut utilisateur
-        window.updateUserDisplay = function(user) {
-            const authStatus = document.getElementById('authStatus');
-            if (authStatus && user) {
-                const userName = user.displayName || user.name || 'Utilisateur';
-                const userEmail = user.mail || user.userPrincipalName || user.email || '';
-                const initials = userName.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+    <!-- Avantages condensés -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Pourquoi EmailSortPro ?</h2>
+            
+            <div class="advantages-condensed">
+                <div class="advantage-compact">⚡ <strong>3h économisées/jour</strong></div>
+                <div class="advantage-compact">🧠 <strong>IA évolutive</strong></div>
+                <div class="advantage-compact">🛡️ <strong>Sécurisé RGPD</strong></div>
+                <div class="advantage-compact">🚀 <strong>Installation 5min</strong></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment ça marche - simplifié -->
+    <section class="section steps-section">
+        <div class="container">
+            <h2 class="section-title">3 étapes simples</h2>
+            
+            <div class="steps-simple">
+                <div class="step-simple">
+                    <span class="step-number">1</span>
+                    <h3>Installation 5min</h3>
+                    <p>Ajout automatique à Outlook</p>
+                </div>
                 
-                authStatus.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 12px; color: white;">
-                        <span style="font-size: 14px;">${userName}</span>
-                        <div style="width: 36px; height: 36px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">
-                            ${initials}
-                        </div>
-                        <button onclick="window.handleLogout()" style="background: rgba(255,255,255,0.2); border: none; padding: 6px 12px; border-radius: 6px; color: white; cursor: pointer; font-size: 12px;">
-                            <i class="fas fa-sign-out-alt"></i> Déconnexion
-                        </button>
+                <div class="step-simple">
+                    <span class="step-number">2</span>
+                    <h3>IA apprend</h3>
+                    <p>Analyse vos habitudes emails</p>
+                </div>
+                
+                <div class="step-simple">
+                    <span class="step-number">3</span>
+                    <h3>Automatisation</h3>
+                    <p>Gestion totalement autonome</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Final -->
+    <section class="section cta-final">
+        <div class="container">
+            <h2>Prêt à transformer votre productivité ?</h2>
+            <p>
+                Rejoignez des milliers de professionnels qui ont repris le contrôle de leur boîte email
+            </p>
+            <div class="hero-buttons">
+                <a href="tarifs.html#contact" class="btn-primary">
+                    <i class="fas fa-rocket"></i> Commencer l'essai gratuit
+                </a>
+                <a href="tarifs.html#contact" class="btn-secondary">
+                    <i class="fas fa-comments"></i> Demander une démo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <span>EmailSortPro</span>
                     </div>
-                `;
-            }
-        };
-    </script>
+                    <p>Scanner d'emails intelligent avec IA</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens rapides</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
+                        <li><a href="tarifs.html">Tarifs</a></li>
+                        <li><a href="securite.html">Sécurité</a></li>
+                        <li><a href="presentation.html">Qui suis-je ?</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Une question ? Contactez-nous via le formulaire sur la page contact.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EmailSortPro. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
