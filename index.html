@@ -51,540 +51,267 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" style="padding: 2rem 0;">
+    <!-- Hero Section Compact -->
+    <section class="hero" style="padding: 1.5rem 0; text-align: center;">
         <div class="hero-content">
-            <h1 style="margin-bottom: 0.75rem;">Triez vos emails en 2 clics avec EmailSortPro</h1>
-            <p class="hero-subtitle" style="margin-bottom: 1.5rem;">
-                Application web qui catégorise automatiquement vos emails et crée des tâches associées<br>
-                Sans installation • 100% RGPD
+            <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">
+                Gagnez jusqu'à <span style="color: #10b981;">2h par jour</span> sur vos emails
+            </h1>
+            <p style="font-size: 1rem; color: #64748b; margin-bottom: 0;">
+                EmailSortPro catégorise vos emails et crée des tâches automatiquement<br>
+                <strong>Sans installation • 100% RGPD</strong>
             </p>
         </div>
     </section>
 
-    <!-- Section Problème/Solution améliorée -->
-    <section id="problem" class="problem-solution-section" style="padding: 2rem 0;">
+    <!-- Tableau ROI Principal -->
+    <section style="padding: 1rem 0; background: #f8f9fa;">
         <div class="container">
-            <div class="problem-solution-grid" style="margin-bottom: 1.5rem;">
-                <div class="problem-card">
-                    <div class="card-header problem" style="padding: 1rem;">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h2 style="font-size: 1.25rem;">Le Problème</h2>
-                    </div>
-                    <div class="card-stats" style="padding: 1rem;">
-                        <div class="stat-number" style="font-size: 2.5rem;">1-3h</div>
-                        <div class="stat-label" style="font-size: 0.9rem;">perdues chaque jour dans les emails</div>
-                    </div>
-                    <ul class="problem-list" style="padding: 1rem;">
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-times"></i> 50+ emails non triés par jour</li>
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-times"></i> Messages importants noyés</li>
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-times"></i> Tâches oubliées ou en retard</li>
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-times"></i> Courriers indésirables non traités</li>
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-times"></i> Stress constant et surcharge mentale</li>
-                    </ul>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="card-header solution" style="padding: 1rem;">
-                        <i class="fas fa-check-circle"></i>
-                        <h2 style="font-size: 1.25rem;">La Solution EmailSortPro</h2>
-                    </div>
-                    <div class="card-stats" style="padding: 1rem;">
-                        <div class="stat-number" style="font-size: 2.5rem;">2 clics</div>
-                        <div class="stat-label" style="font-size: 0.9rem;">pour tout organiser avec EmailSortPro</div>
-                    </div>
-                    <ul class="solution-list" style="padding: 1rem;">
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"></i> <strong>Tri intelligent</strong> par catégories personnalisées</li>
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"></i> <strong>Détecte</strong> les urgences automatiquement</li>
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"></i> <strong>Crée des tâches</strong> depuis vos emails</li>
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"></i> <strong>Filtre</strong> les courriers indésirables</li>
-                        <li style="padding: 0.5rem 0;"><i class="fas fa-check"></i> <strong>100% RGPD</strong> : données chez Microsoft</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Calculateur de ROI -->
-    <section class="roi-section" style="padding: 2rem 0;">
-        <div class="container">
-            <h2 class="section-title" style="margin-bottom: 1rem;">Combien de temps allez-vous gagner ?</h2>
+            <h2 style="text-align: center; font-size: 1.5rem; margin-bottom: 1rem;">
+                Combien de temps perdez-vous chaque jour ?
+            </h2>
             
-            <div class="roi-calculator">
-                <div class="persona-grid" style="margin-bottom: 1.5rem;">
-                    <div class="persona-card" onclick="calculateROI('manager')" data-persona="manager">
-                        <div class="persona-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">👔</div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Manager / Dirigeant</h3>
-                        <div class="persona-details">
-                            <p style="margin: 0.25rem 0; font-size: 0.85rem;"><strong>5h de réunions/jour</strong></p>
-                            <p style="margin: 0.25rem 0; font-size: 0.85rem;">100-150 emails/jour</p>
-                        </div>
+            <!-- Tableau des profils -->
+            <div style="overflow-x: auto; margin-bottom: 1rem;">
+                <table style="width: 100%; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                    <thead>
+                        <tr style="background: #4F46E5; color: white;">
+                            <th style="padding: 0.75rem; text-align: left; font-size: 0.9rem;">Votre rôle</th>
+                            <th style="padding: 0.75rem; text-align: center; font-size: 0.9rem;">📧 Emails/jour</th>
+                            <th style="padding: 0.75rem; text-align: center; font-size: 0.9rem;">⏱️ Temps actuel</th>
+                            <th style="padding: 0.75rem; text-align: center; font-size: 0.9rem; background: #10b981;">💰 Temps gagné</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr onclick="selectProfile(this, 'chef-projet')" style="cursor: pointer; transition: all 0.2s;">
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #e2e8f0;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="font-size: 1.5rem;">🧑‍💼</span>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Chef de projet</strong>
+                                        <div style="font-size: 0.75rem; color: #64748b;">Coordination, planning, fournisseurs</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 600;">60-100</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">1h30-2h30</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">30-60 min</td>
+                        </tr>
+                        <tr onclick="selectProfile(this, 'commercial')" style="cursor: pointer; transition: all 0.2s; background: #f0f4ff;">
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #e2e8f0;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="font-size: 1.5rem;">👔</span>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Commercial</strong>
+                                        <div style="font-size: 0.75rem; color: #64748b;">Prospection, relances, opportunités</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 600;">50-80</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">1h-2h</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">30-45 min</td>
+                        </tr>
+                        <tr onclick="selectProfile(this, 'manager')" style="cursor: pointer; transition: all 0.2s;">
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #e2e8f0;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="font-size: 1.5rem;">🧑‍💼</span>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Manager / Responsable</strong>
+                                        <div style="font-size: 0.75rem; color: #64748b;">Stratégie, reporting, suivi opérationnel</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 600;">80-120</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">2h-3h</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">45-90 min</td>
+                        </tr>
+                        <tr onclick="selectProfile(this, 'relation-client')" style="cursor: pointer; transition: all 0.2s;">
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #e2e8f0;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="font-size: 1.5rem;">🤝</span>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Relation Client</strong>
+                                        <div style="font-size: 0.75rem; color: #64748b;">Demandes, réclamations, relances</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 600;">150-300</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">3h-4h</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">1h-2h</td>
+                        </tr>
+                        <tr onclick="selectProfile(this, 'logistique')" style="cursor: pointer; transition: all 0.2s;">
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #e2e8f0;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="font-size: 1.5rem;">🧑‍🔧</span>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Logistique / Technique</strong>
+                                        <div style="font-size: 0.75rem; color: #64748b;">Coordination, planning, imprévus</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 600;">30-60</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">45-90 min</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">20-40 min</td>
+                        </tr>
+                        <tr onclick="selectProfile(this, 'marketing')" style="cursor: pointer; transition: all 0.2s;">
+                            <td style="padding: 0.75rem; border-bottom: 1px solid #e2e8f0;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="font-size: 1.5rem;">🎨</span>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Communication / Marketing</strong>
+                                        <div style="font-size: 0.75rem; color: #64748b;">Campagnes, contenus, partenaires</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; font-weight: 600;">40-70</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">1h-1h40</td>
+                            <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">30-50 min</td>
+                        </tr>
+                        <tr onclick="selectProfile(this, 'assistant')" style="cursor: pointer; transition: all 0.2s;">
+                            <td style="padding: 0.75rem;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <span style="font-size: 1.5rem;">🧑‍💻</span>
+                                    <div>
+                                        <strong style="font-size: 0.9rem;">Assistant(e)</strong>
+                                        <div style="font-size: 0.75rem; color: #64748b;">Administratif, relances, soutien</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 0.75rem; text-align: center; font-weight: 600;">60-90</td>
+                            <td style="padding: 0.75rem; text-align: center; color: #ef4444;">1h30-2h30</td>
+                            <td style="padding: 0.75rem; text-align: center; background: #f0fdf4; color: #10b981; font-weight: 700;">30-60 min</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Résultat personnalisé -->
+            <div id="personalizedResult" style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: center; margin-bottom: 1rem;">
+                <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Votre gain de temps estimé</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <div style="font-size: 2rem; font-weight: 700; color: #4F46E5;">45 min</div>
+                        <div style="font-size: 0.8rem; color: #64748b;">par jour</div>
                     </div>
-                    
-                    <div class="persona-card active" onclick="calculateROI('commercial')" data-persona="commercial">
-                        <div class="persona-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">💼</div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Commercial / Business</h3>
-                        <div class="persona-details">
-                            <p style="margin: 0.25rem 0; font-size: 0.85rem;"><strong>3h terrain/jour</strong></p>
-                            <p style="margin: 0.25rem 0; font-size: 0.85rem;">50-80 emails/jour</p>
-                        </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: 700; color: #4F46E5;">3h45</div>
+                        <div style="font-size: 0.8rem; color: #64748b;">par semaine</div>
                     </div>
-                    
-                    <div class="persona-card" onclick="calculateROI('support')" data-persona="support">
-                        <div class="persona-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🎧</div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Équipes Relation Client</h3>
-                        <div class="persona-details">
-                            <p style="margin: 0.25rem 0; font-size: 0.85rem;"><strong>6h tickets/jour</strong></p>
-                            <p style="margin: 0.25rem 0; font-size: 0.85rem;">100-200 emails/jour</p>
-                        </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: 700; color: #4F46E5;">15h</div>
+                        <div style="font-size: 0.8rem; color: #64748b;">par mois</div>
                     </div>
                 </div>
-                
-                <div class="roi-result" id="roiResult" style="padding: 1.5rem;">
-                    <div class="roi-stats" style="margin-bottom: 1rem;">
-                        <div class="roi-stat" style="padding: 0.75rem;">
-                            <span class="roi-icon" style="font-size: 1.5rem;">⏰</span>
-                            <span class="roi-number" id="dailyTime" style="font-size: 2rem;">1h</span>
-                            <span class="roi-label" style="font-size: 0.85rem;">par jour</span>
-                        </div>
-                        <div class="roi-stat" style="padding: 0.75rem;">
-                            <span class="roi-icon" style="font-size: 1.5rem;">📅</span>
-                            <span class="roi-number" id="weeklyTime" style="font-size: 2rem;">5h</span>
-                            <span class="roi-label" style="font-size: 0.85rem;">par semaine</span>
-                        </div>
-                        <div class="roi-stat" style="padding: 0.75rem;">
-                            <span class="roi-icon" style="font-size: 1.5rem;">📈</span>
-                            <span class="roi-number" id="monthlyTime" style="font-size: 2rem;">20h</span>
-                            <span class="roi-label" style="font-size: 0.85rem;">par mois</span>
-                        </div>
+                <p style="color: #10b981; font-weight: 600; margin: 0;">
+                    = Presque 2 jours de travail récupérés chaque mois !
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comment ça marche (ultra compact) -->
+    <section style="padding: 1rem 0;">
+        <div class="container">
+            <div style="background: white; border-radius: 12px; padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+                <h3 style="text-align: center; font-size: 1.125rem; margin-bottom: 0.75rem;">3 étapes pour récupérer votre temps</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+                    <div>
+                        <div style="background: #E0E7FF; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: 700; color: #4F46E5;">1</div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.25rem;">Connectez</h4>
+                        <p style="font-size: 0.75rem; color: #64748b; margin: 0;">Outlook en 1 clic</p>
+                    </div>
+                    <div>
+                        <div style="background: #E0E7FF; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: 700; color: #4F46E5;">2</div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.25rem;">EmailSortPro trie</h4>
+                        <p style="font-size: 0.75rem; color: #64748b; margin: 0;">Catégories + tâches</p>
+                    </div>
+                    <div>
+                        <div style="background: #E0E7FF; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-weight: 700; color: #4F46E5;">3</div>
+                        <h4 style="font-size: 0.9rem; margin-bottom: 0.25rem;">Gagnez du temps</h4>
+                        <p style="font-size: 0.75rem; color: #64748b; margin: 0;">Dès le 1er jour</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Comment ça marche et Avantages combinés -->
-    <section class="section" style="padding: 2rem 0;">
+    <!-- CTA Final -->
+    <section style="padding: 1.5rem 0; background: #4F46E5; text-align: center;">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-                <!-- Process simplifié -->
-                <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: center;">Comment ça marche ?</h3>
-                    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <span style="background: #4F46E5; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</span>
-                            <span>Connectez Outlook (1 clic)</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <span style="background: #4F46E5; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</span>
-                            <span>EmailSortPro analyse vos emails</span>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 1rem;">
-                            <span style="background: #4F46E5; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</span>
-                            <span>Tout est trié automatiquement</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Avantages clés -->
-                <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: center;">Application web qui catégorise automatiquement vos emails et crée des tâches associées<br>Sans installation • 100% RGPD</h3>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
-                            <span style="color: #10b981;">✓</span> Gain immédiat
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
-                            <span style="color: #10b981;">✓</span> 100% sécurisé
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
-                            <span style="color: #10b981;">✓</span> Algorithme évolutif
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
-                            <span style="color: #10b981;">✓</span> Sans installation
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA Principal -->
-            <div style="text-align: center;">
-                <a href="tarifs.html#contact" class="btn-primary" style="font-size: 1.25rem; padding: 1rem 2rem;">
-                    <i class="fas fa-rocket"></i> Démarrer maintenant
-                </a>
-                <p style="margin-top: 0.5rem; color: #64748b; font-size: 0.9rem;">14 jours d'essai • Sans carte bancaire</p>
-            </div>
+            <h2 style="color: white; font-size: 1.5rem; margin-bottom: 0.5rem;">
+                Prêt à récupérer votre temps ?
+            </h2>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 1rem;">
+                14 jours d'essai gratuit • Sans carte bancaire • Installation en 2 minutes
+            </p>
+            <a href="tarifs.html#contact" style="background: white; color: #4F46E5; padding: 0.75rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; display: inline-block;">
+                <i class="fas fa-rocket"></i> Démarrer maintenant
+            </a>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Footer compact -->
+    <footer class="footer" style="padding: 1rem 0;">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="logo">
-                        <i class="fas fa-envelope-open-text"></i>
-                        <span>EmailSortPro</span>
-                    </div>
-                    <p>Scanner d'emails intelligent avec IA</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Liens rapides</h4>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
-                        <li><a href="tarifs.html">Tarifs</a></li>
-                        <li><a href="securite.html">Sécurité</a></li>
-                        <li><a href="presentation.html">Qui suis-je ?</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact</h4>
-                    <p>Une question ? Contactez-nous via le formulaire sur la page contact.</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 EmailSortPro. Tous droits réservés.</p>
+            <div style="text-align: center; font-size: 0.8rem; color: #64748b;">
+                <p style="margin-bottom: 0.5rem;">
+                    <a href="fonctionnalites.html" style="color: #64748b; margin: 0 0.5rem;">Fonctionnalités</a> •
+                    <a href="tarifs.html" style="color: #64748b; margin: 0 0.5rem;">Tarifs</a> •
+                    <a href="securite.html" style="color: #64748b; margin: 0 0.5rem;">Sécurité</a> •
+                    <a href="contact.html" style="color: #64748b; margin: 0 0.5rem;">Contact</a>
+                </p>
+                <p style="margin: 0;">&copy; 2025 EmailSortPro. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
     <script>
-        // Calculateur de ROI
-        function calculateROI(persona) {
-            // Retirer la classe active de toutes les cartes
-            document.querySelectorAll('.persona-card').forEach(card => {
-                card.classList.remove('active');
+        // Fonction pour sélectionner un profil
+        function selectProfile(row, profile) {
+            // Retirer la sélection précédente
+            document.querySelectorAll('tbody tr').forEach(tr => {
+                tr.style.background = '';
             });
             
-            // Ajouter la classe active à la carte cliquée
-            const selectedCard = document.querySelector(`[data-persona="${persona}"]`);
-            if (selectedCard) {
-                selectedCard.classList.add('active');
-            }
+            // Ajouter la sélection
+            row.style.background = '#f0f4ff';
             
-            // Données de ROI par persona
-            const roiData = {
-                manager: {
-                    description: "Pour un manager avec 100-150 emails/jour :",
-                    daily: "1h30",
-                    weekly: "7h30",
-                    monthly: "30h",
-                    equivalent: "Presque 1 semaine de travail récupérée chaque mois !"
-                },
-                commercial: {
-                    description: "Pour un commercial avec 50-80 emails/jour :",
-                    daily: "1h",
-                    weekly: "5h",
-                    monthly: "20h",
-                    equivalent: "2,5 jours de travail récupérés chaque mois !"
-                },
-                support: {
-                    description: "Pour une équipe relation client avec 100-200 emails/jour :",
-                    daily: "2h",
-                    weekly: "10h",
-                    monthly: "40h",
-                    equivalent: "Une semaine complète de travail récupérée chaque mois !"
-                }
+            // Données des profils
+            const profileData = {
+                'chef-projet': { daily: '45 min', weekly: '3h45', monthly: '15h', equivalent: 'Presque 2 jours de travail récupérés chaque mois !' },
+                'commercial': { daily: '37 min', weekly: '3h', monthly: '12h', equivalent: '1,5 jour de travail récupéré chaque mois !' },
+                'manager': { daily: '1h07', weekly: '5h35', monthly: '22h30', equivalent: 'Presque 3 jours de travail récupérés chaque mois !' },
+                'relation-client': { daily: '1h30', weekly: '7h30', monthly: '30h', equivalent: 'Une semaine complète récupérée chaque mois !' },
+                'logistique': { daily: '30 min', weekly: '2h30', monthly: '10h', equivalent: 'Plus d\'une journée récupérée chaque mois !' },
+                'marketing': { daily: '40 min', weekly: '3h20', monthly: '13h20', equivalent: '1,5 jour de travail récupéré chaque mois !' },
+                'assistant': { daily: '45 min', weekly: '3h45', monthly: '15h', equivalent: 'Presque 2 jours de travail récupérés chaque mois !' }
             };
             
-            const data = roiData[persona];
+            const data = profileData[profile];
             
             // Mettre à jour l'affichage
-            document.getElementById('roiDescription').textContent = data.description;
-            document.getElementById('dailyTime').textContent = data.daily;
-            document.getElementById('weeklyTime').textContent = data.weekly;
-            document.getElementById('monthlyTime').textContent = data.monthly;
-            document.getElementById('roiEquivalent').textContent = data.equivalent;
-            
-            // Animation de mise à jour
-            const resultDiv = document.getElementById('roiResult');
-            resultDiv.style.animation = 'none';
-            setTimeout(() => {
-                resultDiv.style.animation = 'fadeIn 0.5s ease-in-out';
-            }, 10);
+            document.getElementById('personalizedResult').innerHTML = `
+                <h3 style="font-size: 1.25rem; margin-bottom: 1rem;">Votre gain de temps estimé</h3>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                    <div>
+                        <div style="font-size: 2rem; font-weight: 700; color: #4F46E5;">${data.daily}</div>
+                        <div style="font-size: 0.8rem; color: #64748b;">par jour</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: 700; color: #4F46E5;">${data.weekly}</div>
+                        <div style="font-size: 0.8rem; color: #64748b;">par semaine</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2rem; font-weight: 700; color: #4F46E5;">${data.monthly}</div>
+                        <div style="font-size: 0.8rem; color: #64748b;">par mois</div>
+                    </div>
+                </div>
+                <p style="color: #10b981; font-weight: 600; margin: 0;">
+                    = ${data.equivalent}
+                </p>
+            `;
         }
     </script>
-    
-    <style>
-        /* Styles spécifiques pour la page améliorée */
-        .problem-solution-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .problem-card,
-        .solution-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .card-header {
-            padding: 1.5rem;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .card-header.problem {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-        }
-
-        .card-header.solution {
-            background: linear-gradient(135deg, #10b981, #059669);
-        }
-
-        .card-header h2 {
-            font-size: 1.5rem;
-            margin: 0;
-        }
-
-        .card-stats {
-            padding: 2rem;
-            text-align: center;
-            background: #f8f9fa;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #1a1a1a;
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: #64748b;
-            margin-top: 0.5rem;
-        }
-
-        .problem-list,
-        .solution-list {
-            list-style: none;
-            padding: 2rem;
-            margin: 0;
-        }
-
-        .problem-list li,
-        .solution-list li {
-            padding: 0.75rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 1.05rem;
-        }
-
-        .problem-list i {
-            color: #ef4444;
-        }
-
-        .solution-list i {
-            color: #10b981;
-        }
-
-        /* Section ROI */
-        .roi-section {
-            background: #f8f9fa;
-            padding: 4rem 0;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: #64748b;
-            margin-bottom: 3rem;
-            font-size: 1.125rem;
-        }
-
-        .persona-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .persona-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .persona-card:hover {
-            border-color: #4F46E5;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .persona-card.active {
-            border-color: #4F46E5;
-            background: #f0f4ff;
-        }
-
-        .persona-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .persona-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .persona-details p {
-            margin: 0.5rem 0;
-            font-size: 0.95rem;
-            color: #64748b;
-        }
-
-        .roi-result {
-            background: white;
-            border-radius: 16px;
-            padding: 3rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .roi-result-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .roi-result-header h3 {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-        }
-
-        .roi-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .roi-stat {
-            text-align: center;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-        }
-
-        .roi-icon {
-            font-size: 2rem;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .roi-number {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #4F46E5;
-            margin: 0.5rem 0;
-        }
-
-        .roi-label {
-            font-size: 0.95rem;
-            color: #64748b;
-        }
-
-        .roi-equivalent {
-            text-align: center;
-            padding: 1.5rem;
-            background: #f0f4ff;
-            border-radius: 12px;
-            margin-top: 1rem;
-        }
-
-        .roi-equivalent p {
-            margin: 0;
-            font-size: 1.125rem;
-            color: #1a1a1a;
-        }
-
-        /* Process flow */
-        .process-flow {
-            display: grid;
-            grid-template-columns: auto 1fr auto 1fr auto 1fr auto;
-            align-items: center;
-            gap: 1rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .process-step {
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .step-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .process-step h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-        }
-
-        .process-step p {
-            font-size: 0.875rem;
-            color: #64748b;
-            margin: 0;
-        }
-
-        .process-arrow {
-            font-size: 2rem;
-            color: #cbd5e1;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .problem-solution-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .persona-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .roi-stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .process-flow {
-                grid-template-columns: 1fr;
-            }
-
-            .process-arrow {
-                transform: rotate(90deg);
-                margin: 1rem 0;
-            }
-        }
-    </style>
 </body>
 </html>
