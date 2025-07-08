@@ -36,10 +36,6 @@
                         <i class="fas fa-shield-alt"></i> 
                         <span>Sécurité</span>
                     </a></li>
-                    <li><a href="presentation.html" class="nav-link">
-                        <i class="fas fa-user"></i> 
-                        <span>Qui suis-je ?</span>
-                    </a></li>
                     <li><a href="contact.html" class="nav-link">
                         <i class="fas fa-envelope"></i> 
                         <span>Contact</span>
@@ -60,7 +56,8 @@
         <div class="hero-content">
             <h1 style="margin-bottom: 0.75rem;">Triez vos emails en 2 clics avec EmailSortPro</h1>
             <p class="hero-subtitle" style="margin-bottom: 1.5rem;">
-                Application web qui catégorise automatiquement vos emails • Sans installation • 100% RGPD
+                Application web qui catégorise automatiquement vos emails et crée des tâches associées<br>
+                Sans installation • 100% RGPD
             </p>
         </div>
     </section>
@@ -135,7 +132,7 @@
                     
                     <div class="persona-card" onclick="calculateROI('support')" data-persona="support">
                         <div class="persona-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🎧</div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Support / Opérations</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Équipes Relation Client</h3>
                         <div class="persona-details">
                             <p style="margin: 0.25rem 0; font-size: 0.85rem;"><strong>6h tickets/jour</strong></p>
                             <p style="margin: 0.25rem 0; font-size: 0.85rem;">100-200 emails/jour</p>
@@ -191,7 +188,7 @@
 
                 <!-- Avantages clés -->
                 <div style="background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: center;">Avantages clés</h3>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 1rem; text-align: center;">Application web qui catégorise automatiquement vos emails et crée des tâches associées<br>Sans installation • 100% RGPD</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
                         <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">
                             <span style="color: #10b981;">✓</span> Gain immédiat
@@ -270,25 +267,25 @@
             // Données de ROI par persona
             const roiData = {
                 manager: {
-                    description: "Pour un manager avec 150-200 emails/jour :",
-                    daily: "2h",
-                    weekly: "10h",
-                    monthly: "40h",
-                    equivalent: "Une semaine complète de travail récupérée chaque mois !"
-                },
-                commercial: {
-                    description: "Pour un commercial avec 80-120 emails/jour :",
+                    description: "Pour un manager avec 100-150 emails/jour :",
                     daily: "1h30",
                     weekly: "7h30",
                     monthly: "30h",
                     equivalent: "Presque 1 semaine de travail récupérée chaque mois !"
                 },
+                commercial: {
+                    description: "Pour un commercial avec 50-80 emails/jour :",
+                    daily: "1h",
+                    weekly: "5h",
+                    monthly: "20h",
+                    equivalent: "2,5 jours de travail récupérés chaque mois !"
+                },
                 support: {
-                    description: "Pour un agent support avec 200-300 emails/jour :",
-                    daily: "2h30",
-                    weekly: "12h30",
-                    monthly: "50h",
-                    equivalent: "Plus d'une semaine de travail récupérée chaque mois !"
+                    description: "Pour une équipe relation client avec 100-200 emails/jour :",
+                    daily: "2h",
+                    weekly: "10h",
+                    monthly: "40h",
+                    equivalent: "Une semaine complète de travail récupérée chaque mois !"
                 }
             };
             
