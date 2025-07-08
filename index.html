@@ -7,7 +7,460 @@
     <meta name="description" content="Organisez vos emails Outlook intelligemment avec l'IA. Catégorisation automatique et organisation par domaine.">
     <meta name="keywords" content="email, outlook, microsoft, gestion, ia, productivité, organisation">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4f46e5;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #4f46e5;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background: #4f46e5;
+            transition: 0.3s;
+        }
+
+        /* Hero Section - Collé au menu */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Section Problème/Solution - Collée au hero */
+        .problem-solution-section {
+            background: #f8fafc;
+            padding: 2rem 0;
+        }
+
+        .problem-solution-condensed {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .problem-side,
+        .solution-side {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .problem-side {
+            border-left: 4px solid #ef4444;
+        }
+
+        .solution-side {
+            border-left: 4px solid #10b981;
+        }
+
+        .problem-side h2,
+        .solution-side h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-side ul,
+        .solution-side ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .problem-side li,
+        .solution-side li {
+            margin-bottom: 0.5rem;
+        }
+
+        .result-highlight {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .result-highlight h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Tableau - Collé à la section précédente */
+        .time-savings-section {
+            background: white;
+            padding: 2rem 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #1e293b;
+        }
+
+        .savings-table {
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-collapse: collapse;
+        }
+
+        .savings-table thead {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .savings-table th,
+        .savings-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .savings-table th {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .savings-table td {
+            font-size: 0.9rem;
+        }
+
+        .savings-table tbody tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .savings-table tbody tr:hover {
+            background: #f1f5f9;
+        }
+
+        .time-saved {
+            background: #f0fdf4;
+            color: #10b981;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .time-current {
+            color: #ef4444;
+            text-align: center;
+        }
+
+        /* Avantages - Collé au tableau */
+        .advantages-section {
+            background: #f8fafc;
+            padding: 2rem 0;
+        }
+
+        .advantages-condensed {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .advantage-compact {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 500;
+            border-left: 4px solid #4f46e5;
+        }
+
+        /* Étapes - Collé aux avantages */
+        .steps-section {
+            background: white;
+            padding: 2rem 0;
+        }
+
+        .steps-simple {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .step-simple {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .step-simple:hover {
+            border-color: #4f46e5;
+            transform: translateY(-2px);
+        }
+
+        .step-number {
+            background: #4f46e5;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0 auto 1rem auto;
+        }
+
+        .step-simple h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #1e293b;
+        }
+
+        .step-simple p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Final - Collé aux étapes */
+        .cta-final {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .cta-final h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-final p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer - Collé au CTA */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 2rem 0 1rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #e2e8f0;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-section a:hover {
+            color: #4f46e5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 1rem;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .problem-solution-condensed {
+                grid-template-columns: 1fr;
+            }
+
+            .advantages-condensed {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-simple {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .savings-table {
+                font-size: 0.8rem;
+            }
+
+            .savings-table th,
+            .savings-table td {
+                padding: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -52,23 +505,25 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" style="padding: 0.5rem 0;">
-        <div class="hero-content">
-            <h1 style="margin-bottom: 0.25rem;">Triez vos emails en 2 clics avec EmailSortPro</h1>
-            <p class="hero-subtitle" style="margin-bottom: 0;">
-                Application web qui catégorise automatiquement vos emails et crée des tâches associées<br>
-                Sans installation • 100% RGPD
-            </p>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Triez vos emails en 2 clics avec EmailSortPro</h1>
+                <p class="hero-subtitle">
+                    Application web qui catégorise automatiquement vos emails et crée des tâches associées<br>
+                    Sans installation • 100% RGPD
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Section Problème/Solution -->
-    <section id="problem" class="problem-solution-section" style="padding: 0.5rem 0;">
+    <section class="problem-solution-section">
         <div class="container">
-            <div class="problem-solution-condensed" style="margin-bottom: 0.5rem;">
+            <div class="problem-solution-condensed">
                 <div class="problem-side">
-                    <h2 style="font-size: 1.125rem; margin-bottom: 0.25rem;">😰 Le problème</h2>
-                    <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem;">
+                    <h2>😰 Le problème</h2>
+                    <ul>
                         <li>Submergé par des centaines d'emails</li>
                         <li>2-4h perdues chaque jour</li>
                         <li>Messages importants manqués</li>
@@ -78,8 +533,8 @@
                 </div>
                 
                 <div class="solution-side">
-                    <h2 style="font-size: 1.125rem; margin-bottom: 0.25rem;">🎯 La solution EmailSortPro</h2>
-                    <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.9rem;">
+                    <h2>🎯 La solution EmailSortPro</h2>
+                    <ul>
                         <li><strong>Algorithme analyse</strong> emails instantanément</li>
                         <li><strong>Tri automatique</strong> intelligent</li>
                         <li><strong>Priorisation smart</strong> des urgences</li>
@@ -88,92 +543,78 @@
                 </div>
             </div>
             
-            <div class="result-highlight" style="margin-bottom: 0;">
-                <h3 style="font-size: 1rem; margin-bottom: 0;">🚀 Résultat : Économisez jusqu'à 2h par jour</h3>
-                <p style="margin: 0; font-size: 0.85rem;">Boîte email organisée automatiquement • Aucun message important manqué</p>
+            <div class="result-highlight">
+                <h3>🚀 Résultat : Économisez jusqu'à 2h par jour</h3>
+                <p>Boîte email organisée automatiquement • Aucun message important manqué</p>
             </div>
         </div>
     </section>
 
     <!-- Tableau de gain de temps détaillé -->
-    <section class="section" style="padding: 0.5rem 0; background: #f8f9fa;">
+    <section class="time-savings-section">
         <div class="container">
-            <h2 class="section-title" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Combien de temps allez-vous gagner ?</h2>
+            <h2 class="section-title">Combien de temps allez-vous gagner ?</h2>
             
             <div style="overflow-x: auto;">
-                <table style="width: 100%; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); font-size: 0.85rem;">
+                <table class="savings-table">
                     <thead>
-                        <tr style="background: #4F46E5; color: white;">
-                            <th style="padding: 0.5rem; text-align: left;">Rôle</th>
-                            <th style="padding: 0.5rem; text-align: center;">Volume emails/jour</th>
-                            <th style="padding: 0.5rem; text-align: center;">Temps actuel/jour</th>
-                            <th style="padding: 0.5rem; text-align: center; background: #10b981;">Temps gagné/jour</th>
-                            <th style="padding: 0.5rem; text-align: left;">Commentaires</th>
+                        <tr>
+                            <th>Rôle</th>
+                            <th style="text-align: center;">Volume emails/jour</th>
+                            <th style="text-align: center;">Temps actuel/jour</th>
+                            <th style="text-align: center;">Temps gagné/jour</th>
+                            <th>Commentaires</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0;">
-                                <strong>🧑‍💼 Chef de projet</strong>
-                            </td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0;">60 à 100</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">90 à 150 min</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">30 à 60 min</td>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0; font-size: 0.8rem; color: #64748b;">Coordination d'équipe, planning, échanges avec fournisseurs et clients</td>
-                        </tr>
-                        <tr style="background: #f0f4ff;">
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0;">
-                                <strong>👔 Commercial</strong>
-                            </td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0;">50 à 80</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">60 à 120 min</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">30 à 45 min</td>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0; font-size: 0.8rem; color: #64748b;">Prospection, relances, suivi des opportunités</td>
+                            <td><strong>🧑‍💼 Chef de projet</strong></td>
+                            <td style="text-align: center;">60 à 100</td>
+                            <td class="time-current">90 à 150 min</td>
+                            <td class="time-saved">30 à 60 min</td>
+                            <td>Coordination d'équipe, planning, échanges avec fournisseurs et clients</td>
                         </tr>
                         <tr>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0;">
-                                <strong>🧑‍💼 Manager / Responsable</strong>
-                            </td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0;">80 à 120</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">120 à 180 min</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">45 à 90 min</td>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0; font-size: 0.8rem; color: #64748b;">Gestion stratégique, reporting, suivi opérationnel</td>
+                            <td><strong>👔 Commercial</strong></td>
+                            <td style="text-align: center;">50 à 80</td>
+                            <td class="time-current">60 à 120 min</td>
+                            <td class="time-saved">30 à 45 min</td>
+                            <td>Prospection, relances, suivi des opportunités</td>
                         </tr>
                         <tr>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0;">
-                                <strong>🤝 Relation Client (équipe)</strong>
-                            </td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0;">150 à 300</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">180 à 240 min</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">60 à 120 min</td>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0; font-size: 0.8rem; color: #64748b;">Traitement des demandes, réclamations, inscription, relances</td>
+                            <td><strong>🧑‍💼 Manager / Responsable</strong></td>
+                            <td style="text-align: center;">80 à 120</td>
+                            <td class="time-current">120 à 180 min</td>
+                            <td class="time-saved">45 à 90 min</td>
+                            <td>Gestion stratégique, reporting, suivi opérationnel</td>
                         </tr>
                         <tr>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0;">
-                                <strong>🧑‍🔧 Logistique / Technique</strong>
-                            </td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0;">30 à 60</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">45 à 90 min</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">20 à 40 min</td>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0; font-size: 0.8rem; color: #64748b;">Coordination technique, planning, résolution d'imprévus</td>
+                            <td><strong>🤝 Relation Client (équipe)</strong></td>
+                            <td style="text-align: center;">150 à 300</td>
+                            <td class="time-current">180 à 240 min</td>
+                            <td class="time-saved">60 à 120 min</td>
+                            <td>Traitement des demandes, réclamations, inscription, relances</td>
                         </tr>
                         <tr>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0;">
-                                <strong>🎨 Communication / Marketing</strong>
-                            </td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0;">40 à 70</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; color: #ef4444;">60 à 100 min</td>
-                            <td style="padding: 0.5rem; text-align: center; border-bottom: 1px solid #e2e8f0; background: #f0fdf4; color: #10b981; font-weight: 700;">30 à 50 min</td>
-                            <td style="padding: 0.5rem; border-bottom: 1px solid #e2e8f0; font-size: 0.8rem; color: #64748b;">Campagnes, validation de contenus, échanges partenaires</td>
+                            <td><strong>🧑‍🔧 Logistique / Technique</strong></td>
+                            <td style="text-align: center;">30 à 60</td>
+                            <td class="time-current">45 à 90 min</td>
+                            <td class="time-saved">20 à 40 min</td>
+                            <td>Coordination technique, planning, résolution d'imprévus</td>
                         </tr>
                         <tr>
-                            <td style="padding: 0.5rem;">
-                                <strong>🧑‍💻 Assistant(e)</strong>
-                            </td>
-                            <td style="padding: 0.5rem; text-align: center;">60 à 90</td>
-                            <td style="padding: 0.5rem; text-align: center; color: #ef4444;">90 à 150 min</td>
-                            <td style="padding: 0.5rem; text-align: center; background: #f0fdf4; color: #10b981; font-weight: 700;">30 à 60 min</td>
-                            <td style="padding: 0.5rem; font-size: 0.8rem; color: #64748b;">Suivi administratif, relances internes et externes, soutien aux responsables</td>
+                            <td><strong>🎨 Communication / Marketing</strong></td>
+                            <td style="text-align: center;">40 à 70</td>
+                            <td class="time-current">60 à 100 min</td>
+                            <td class="time-saved">30 à 50 min</td>
+                            <td>Campagnes, validation de contenus, échanges partenaires</td>
+                        </tr>
+                        <tr>
+                            <td><strong>🧑‍💻 Assistant(e)</strong></td>
+                            <td style="text-align: center;">60 à 90</td>
+                            <td class="time-current">90 à 150 min</td>
+                            <td class="time-saved">30 à 60 min</td>
+                            <td>Suivi administratif, relances internes et externes, soutien aux responsables</td>
                         </tr>
                     </tbody>
                 </table>
@@ -182,11 +623,11 @@
     </section>
 
     <!-- Avantages condensés -->
-    <section class="section" style="padding: 0.5rem 0;">
+    <section class="advantages-section">
         <div class="container">
-            <h2 class="section-title" style="font-size: 1.125rem; margin-bottom: 0.5rem;">Pourquoi EmailSortPro ?</h2>
+            <h2 class="section-title">Pourquoi EmailSortPro ?</h2>
             
-            <div class="advantages-condensed" style="margin-bottom: 0;">
+            <div class="advantages-condensed">
                 <div class="advantage-compact">⚡ <strong>3h économisées/jour</strong></div>
                 <div class="advantage-compact">🧠 <strong>Algorithme évolutif</strong></div>
                 <div class="advantage-compact">🛡️ <strong>Sécurisé RGPD</strong></div>
@@ -196,44 +637,42 @@
     </section>
 
     <!-- Comment ça marche - simplifié -->
-    <section class="section steps-section" style="padding: 0.5rem 0;">
+    <section class="steps-section">
         <div class="container">
-            <h2 class="section-title" style="font-size: 1.125rem; margin-bottom: 0.5rem;">3 étapes simples</h2>
+            <h2 class="section-title">3 étapes simples</h2>
             
-            <div class="steps-simple" style="gap: 0.5rem;">
-                <div class="step-simple" style="padding: 0.75rem;">
-                    <span class="step-number" style="width: 25px; height: 25px; font-size: 0.875rem;">1</span>
-                    <h3 style="font-size: 0.9rem; margin: 0.25rem 0;">Installation 5min</h3>
-                    <p style="font-size: 0.8rem; margin: 0;">Ajout automatique à Outlook</p>
+            <div class="steps-simple">
+                <div class="step-simple">
+                    <span class="step-number">1</span>
+                    <h3>Installation 5min</h3>
+                    <p>Ajout automatique à Outlook</p>
                 </div>
                 
-                <div class="step-simple" style="padding: 0.75rem;">
-                    <span class="step-number" style="width: 25px; height: 25px; font-size: 0.875rem;">2</span>
-                    <h3 style="font-size: 0.9rem; margin: 0.25rem 0;">Algorithme apprend</h3>
-                    <p style="font-size: 0.8rem; margin: 0;">Analyse vos habitudes emails</p>
+                <div class="step-simple">
+                    <span class="step-number">2</span>
+                    <h3>Algorithme apprend</h3>
+                    <p>Analyse vos habitudes emails</p>
                 </div>
                 
-                <div class="step-simple" style="padding: 0.75rem;">
-                    <span class="step-number" style="width: 25px; height: 25px; font-size: 0.875rem;">3</span>
-                    <h3 style="font-size: 0.9rem; margin: 0.25rem 0;">Automatisation</h3>
-                    <p style="font-size: 0.8rem; margin: 0;">Gestion totalement autonome</p>
+                <div class="step-simple">
+                    <span class="step-number">3</span>
+                    <h3>Automatisation</h3>
+                    <p>Gestion totalement autonome</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Call to Action Final -->
-    <section class="section cta-final" style="padding: 1rem 0;">
+    <section class="cta-final">
         <div class="container">
-            <h2 style="font-size: 1.25rem; margin-bottom: 0.25rem;">Prêt à transformer votre productivité ?</h2>
-            <p style="margin-bottom: 0.75rem; font-size: 0.9rem;">
-                Rejoignez des milliers de professionnels qui ont repris le contrôle de leur boîte email
-            </p>
+            <h2>Prêt à transformer votre productivité ?</h2>
+            <p>Rejoignez des milliers de professionnels qui ont repris le contrôle de leur boîte email</p>
             <div class="hero-buttons">
-                <a href="tarifs.html#contact" class="btn-primary" style="padding: 0.6rem 1.5rem;">
+                <a href="tarifs.html#contact" class="btn-primary">
                     <i class="fas fa-rocket"></i> Commencer l'essai gratuit
                 </a>
-                <a href="tarifs.html#contact" class="btn-secondary" style="padding: 0.6rem 1.5rem;">
+                <a href="tarifs.html#contact" class="btn-secondary">
                     <i class="fas fa-comments"></i> Demander une démo
                 </a>
             </div>
@@ -241,19 +680,19 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer" style="padding: 1rem 0;">
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content" style="gap: 1rem;">
+            <div class="footer-content">
                 <div class="footer-section">
-                    <div class="logo" style="font-size: 0.9rem; margin-bottom: 0.25rem;">
+                    <div class="logo">
                         <i class="fas fa-envelope-open-text"></i>
                         <span>EmailSortPro</span>
                     </div>
-                    <p style="font-size: 0.8rem;">Scanner d'emails intelligent</p>
+                    <p>Scanner d'emails intelligent</p>
                 </div>
                 <div class="footer-section">
-                    <h4 style="font-size: 0.9rem; margin-bottom: 0.25rem;">Liens rapides</h4>
-                    <ul style="font-size: 0.8rem;">
+                    <h4>Liens rapides</h4>
+                    <ul>
                         <li><a href="index.html">Accueil</a></li>
                         <li><a href="fonctionnalites.html">Fonctionnalités</a></li>
                         <li><a href="tarifs.html">Tarifs</a></li>
@@ -262,16 +701,44 @@
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4 style="font-size: 0.9rem; margin-bottom: 0.25rem;">Contact</h4>
-                    <p style="font-size: 0.8rem;">Une question ? Contactez-nous via le formulaire sur la page contact.</p>
+                    <h4>Contact</h4>
+                    <p>Une question ? Contactez-nous via le formulaire sur la page contact.</p>
                 </div>
             </div>
-            <div class="footer-bottom" style="padding-top: 0.5rem;">
-                <p style="font-size: 0.75rem;">&copy; 2025 EmailSortPro. Tous droits réservés.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2025 EmailSortPro. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Menu mobile
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Fermer le menu mobile quand on clique sur un lien
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling pour les liens internes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
